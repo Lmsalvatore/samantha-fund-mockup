@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samantha Fund — Tech, AI e innovazione</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+:root{
+  --ink:#0A2540;
+  --ink-2:#1A2C44;
+  --cyan:#00D4FF;
+  --cyan-soft:#E6FAFF;
+  --bg:#FFFFFF;
+  --bg-2:#F7F9FC;
+  --line:#E6EAF0;
+  --text:#1A1A1A;
+  --muted:#5A6473;
+  --radius:14px;
+  --shadow:0 1px 2px rgba(10,37,64,.04), 0 8px 24px rgba(10,37,64,.06);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:1180px;margin:0 auto;padding:0 28px}
+
+/* Disclaimer bar */
+.legal-bar{
+  background:var(--ink);color:#cfe7ff;font-size:12.5px;
+  padding:10px 0;text-align:center;letter-spacing:.2px;
+}
+.legal-bar strong{color:#fff;font-weight:600}
+
+/* Nav */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:saturate(180%) blur(10px);
+  -webkit-backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.01em}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--ink),var(--cyan))}
+.brand .name{font-size:18px;color:var(--ink)}
+.brand .name span{color:var(--cyan);font-weight:600}
+.menu{display:flex;gap:6px;align-items:center}
+.menu a{
+  padding:9px 14px;border-radius:10px;font-size:14.5px;color:var(--ink-2);
+  font-weight:500;transition:.15s ease;
+}
+.menu a:hover{background:var(--bg-2);color:var(--ink)}
+.menu .cta{
+  background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;
+}
+.menu .cta:hover{background:#08182b}
+
+/* Hero */
+.hero{
+  position:relative;overflow:hidden;
+  padding:96px 0 88px;
+  background:
+    radial-gradient(1200px 500px at 85% -10%, rgba(0,212,255,.18), transparent 60%),
+    radial-gradient(800px 400px at 10% 0%, rgba(10,37,64,.08), transparent 60%),
+    linear-gradient(180deg,#fff, #F7F9FC);
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Space Grotesk',sans-serif;font-weight:500;
+  color:var(--ink);background:var(--cyan-soft);
+  padding:6px 12px;border-radius:999px;font-size:13px;
+  border:1px solid #cdeefa;
+}
+.eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 0 rgba(0,212,255,.6);animation:pulse 1.8s infinite}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(0,212,255,.55)}
+  70%{box-shadow:0 0 0 10px rgba(0,212,255,0)}
+  100%{box-shadow:0 0 0 0 rgba(0,212,255,0)}
+}
+.h1{
+  font-size:clamp(40px,6vw,72px);line-height:1.04;letter-spacing:-.025em;
+  color:var(--ink);font-weight:800;margin:18px 0 18px;max-width:14ch;
+}
+.h1 em{font-style:normal;background:linear-gradient(120deg,var(--ink) 30%,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:19px;color:var(--muted);max-width:58ch;margin:0 0 28px}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 20px;border-radius:12px;font-weight:600;font-size:15px;
+  transition:.15s ease;border:1px solid transparent;
+}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:#08182b;transform:translateY(-1px)}
+.btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn .arr{transition:.15s ease}
+.btn:hover .arr{transform:translateX(3px)}
+
+/* Trust strip */
+.strip{
+  display:flex;gap:34px;flex-wrap:wrap;align-items:center;
+  margin-top:48px;color:var(--muted);font-size:13.5px;
+}
+.strip .item{display:flex;align-items:center;gap:8px}
+.strip .ic{width:18px;height:18px;border-radius:5px;background:var(--cyan-soft);display:inline-flex;align-items:center;justify-content:center;color:var(--ink);font-weight:700;font-size:11px}
+
+/* Sections */
+section{padding:88px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:38px;flex-wrap:wrap}
+.section-head h2{font-size:clamp(28px,3.4vw,40px);letter-spacing:-.02em;margin:0;color:var(--ink);font-weight:800}
+.section-head p{margin:8px 0 0;color:var(--muted);max-width:50ch}
+.section-head a.more{color:var(--ink);font-weight:600;font-size:14.5px;display:inline-flex;align-items:center;gap:6px}
+.section-head a.more:hover{color:var(--cyan)}
+
+/* Pillars */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pillar{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px;transition:.2s ease;
+}
+.pillar:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#cdeefa}
+.pillar .ico{
+  width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,var(--ink),#163759);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-weight:700;margin-bottom:18px;font-family:'Space Grotesk'
+}
+.pillar h3{margin:0 0 8px;font-size:19px;color:var(--ink);letter-spacing:-.01em}
+.pillar p{margin:0;color:var(--muted);font-size:14.5px}
+
+/* Articles */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{
+  display:flex;flex-direction:column;
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;transition:.2s ease;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#cdeefa}
+.card .thumb{
+  aspect-ratio:16/10;overflow:hidden;position:relative;
+  background:linear-gradient(135deg,#0A2540 0%, #143A5C 60%, #00D4FF 130%);
+}
+.card .thumb img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  mix-blend-mode:luminosity;opacity:.88;
+  filter:grayscale(35%) contrast(1.05);
+  transition:.4s ease, opacity .25s ease, filter .25s ease;
+}
+.card .thumb::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(135deg, rgba(10,37,64,.15), rgba(0,212,255,.18));
+  mix-blend-mode:overlay;
+}
+.card:hover .thumb img{transform:scale(1.04);opacity:1;filter:grayscale(0%) contrast(1)}
+.card .body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card .tag{
+  display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--ink);background:var(--cyan-soft);
+  padding:4px 9px;border-radius:6px;align-self:start;
+}
+.card h3{margin:4px 0 0;font-size:18.5px;line-height:1.3;color:var(--ink);letter-spacing:-.01em;font-weight:700}
+.card .meta{margin-top:auto;display:flex;justify-content:space-between;color:var(--muted);font-size:13px;padding-top:14px}
+.card .meta .read{color:var(--ink);font-weight:600}
+
+/* Shop grid (preview live catalogo) */
+.shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.product{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;transition:.2s ease;display:flex;flex-direction:column;
+}
+.product:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#cdeefa}
+.product .pic{
+  aspect-ratio:1/1;background:#F0F2F5;
+  overflow:hidden;position:relative;
+}
+.product .pic img{width:100%;height:100%;object-fit:cover;transition:.4s ease}
+.product:hover .pic img{transform:scale(1.04)}
+.product .info{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.product .cat{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+.product .name{font-size:15px;font-weight:600;color:var(--ink);line-height:1.35;min-height:40px}
+.product .price{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:12px}
+.product .price .amt{font-weight:700;color:var(--ink);font-size:16px}
+.product .price .buy{
+  font-size:12px;font-weight:700;color:var(--ink);
+  background:var(--cyan-soft);padding:6px 10px;border-radius:8px;
+}
+.shop-cta-row{display:flex;justify-content:center;margin-top:30px}
+
+/* Podcast feature */
+.podcast{
+  display:grid;grid-template-columns:380px 1fr;gap:36px;align-items:center;
+  background:#fff;border:1px solid var(--line);border-radius:24px;
+  padding:32px;
+}
+.podcast .cover{
+  aspect-ratio:1/1;border-radius:16px;overflow:hidden;
+  background:#0A2540;box-shadow:0 20px 50px -20px rgba(10,37,64,.5);
+}
+.podcast .cover img{width:100%;height:100%;object-fit:cover;display:block}
+.podcast .body{display:flex;flex-direction:column;gap:14px}
+.podcast .kicker{font-family:'Space Grotesk';color:var(--cyan);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.1em}
+.podcast h3{margin:0;font-size:32px;letter-spacing:-.02em;color:var(--ink);line-height:1.1;font-weight:800}
+.podcast p{margin:0;color:var(--muted);font-size:15.5px;max-width:52ch}
+.podcast .platforms{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.podcast .platforms span{
+  font-size:12px;font-weight:600;color:var(--ink);
+  background:var(--bg-2);padding:6px 10px;border-radius:8px;border:1px solid var(--line);
+}
+.podcast .actions{margin-top:10px}
+
+/* Newsletter */
+.cta-band{
+  margin:60px 0 0;
+  background:linear-gradient(135deg,var(--ink),#0F2D4D);
+  border-radius:24px;padding:64px 48px;color:#fff;
+  display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.cta-band::after{
+  content:"";position:absolute;inset:auto -20% -60% auto;width:60%;height:200%;
+  background:radial-gradient(circle, rgba(0,212,255,.35), transparent 60%);
+}
+.cta-band h3{font-size:32px;margin:0 0 10px;letter-spacing:-.02em}
+.cta-band p{margin:0;color:#a9c4dd;max-width:42ch}
+.cta-band form{display:flex;gap:8px;position:relative;z-index:1}
+.cta-band input{
+  flex:1;padding:14px 16px;border-radius:12px;border:1px solid #1f3a5c;
+  background:#0c1f36;color:#fff;font-size:15px;font-family:inherit;
+  outline:none;transition:.15s ease;
+}
+.cta-band input:focus{border-color:var(--cyan);box-shadow:0 0 0 4px rgba(0,212,255,.15)}
+.cta-band button{
+  padding:14px 20px;border-radius:12px;border:0;background:var(--cyan);
+  color:var(--ink);font-weight:700;font-size:15px;cursor:pointer;font-family:inherit;
+}
+
+/* Footer */
+footer{padding:64px 0 32px;border-top:1px solid var(--line);background:var(--bg-2);margin-top:80px}
+.foot-grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:36px}
+.foot-grid h4{margin:0 0 14px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.foot-grid a{display:block;padding:5px 0;font-size:14.5px;color:var(--ink-2)}
+.foot-grid a:hover{color:var(--cyan)}
+.foot-grid p{margin:0;font-size:14px;color:var(--muted);max-width:38ch}
+.disclaimer{
+  margin-top:42px;padding:20px;border:1px dashed #cfd6e0;border-radius:12px;
+  font-size:13px;color:var(--muted);background:#fff;
+}
+.disclaimer strong{color:var(--ink)}
+.copy{margin-top:30px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* Responsive */
+@media (max-width: 900px){
+  .pillars,.grid{grid-template-columns:1fr 1fr}
+  .shop-grid{grid-template-columns:1fr 1fr}
+  .podcast{grid-template-columns:1fr;padding:24px;gap:24px}
+  .podcast .cover{max-width:280px;margin:0 auto}
+  .cta-band{grid-template-columns:1fr;padding:40px 28px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .menu a:not(.cta){display:none}
+}
+@media (max-width: 600px){
+  .pillars,.grid,.foot-grid,.shop-grid{grid-template-columns:1fr}
+  section{padding:64px 0}
+  .hero{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- Compliance bar -->
+<div class="legal-bar">
+  <div class="container">
+    <strong>Samantha Fund</strong> è un progetto editoriale su tecnologia, AI e innovazione · <strong>NON è un fondo di investimento regolamentato</strong> e non offre consulenza finanziaria.
+  </div>
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand"><span class="dot"></span><span class="name">Samantha<span>.Fund</span></span></a>
+    <div class="menu">
+      <a href="#blog">Blog</a>
+      <a href="#tech">AI &amp; Tech</a>
+      <a href="#podcast">Podcast</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="contatti.html" class="cta">Contatti</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="container">
+    <span class="eyebrow"><span class="pulse"></span> Riding the wave of technology disruption</span>
+    <h1 class="h1">Tech, AI e innovazione <em>raccontate da Samantha.</em></h1>
+    <p class="lead">Analisi, idee e storie sulla rivoluzione tecnologica. Un blog editoriale per chi vuole capire — non solo seguire — il cambiamento.</p>
+    <div class="cta-row">
+      <a href="#blog" class="btn btn-primary">Leggi gli articoli <span class="arr">→</span></a>
+      <a href="#podcast" class="btn btn-ghost">Ascolta il podcast</a>
+    </div>
+    <div class="strip">
+      <div class="item"><span class="ic">✦</span> Aggiornato settimanalmente</div>
+      <div class="item"><span class="ic">⚡</span> AI · Blockchain · Future of Work</div>
+      <div class="item"><span class="ic">★</span> Su Instagram @samantha.fund</div>
+    </div>
+  </div>
+</header>
+
+<!-- Pillars -->
+<section id="tech" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Cosa trovi qui</h2>
+        <p>Tre filoni che attraversano ogni articolo: tecnologia, lavoro, cultura.</p>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="ico">AI</div>
+        <h3>AI &amp; Automazione</h3>
+        <p>Dall'intelligenza artificiale generativa al futuro del lavoro: cosa cambia davvero e cosa è solo rumore.</p>
+      </div>
+      <div class="pillar">
+        <div class="ico">₿</div>
+        <h3>Tokenisation &amp; Finance</h3>
+        <p>Blockchain, asset digitali e nuove forme di valore. Analisi divulgative, mai sollecitazione all'investimento.</p>
+      </div>
+      <div class="pillar">
+        <div class="ico">◐</div>
+        <h3>Cultura &amp; Innovazione</h3>
+        <p>Dalla musica alle istituzioni: come la tecnologia ridisegna ciò che diamo per scontato.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Articles -->
+<section id="blog">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Ultimi articoli</h2>
+        <p>Selezione dal blog. Italiano, inglese, qualche tedesco quando serve.</p>
+      </div>
+      <a href="#" class="more">Tutti gli articoli →</a>
+    </div>
+    <div class="grid">
+      <a class="card" href="https://www.samantha-fund.com/ai-economic-disruption-human-value/">
+        <div class="thumb"><img loading="lazy" src="https://www.samantha-fund.com/wp-content/uploads/2026/03/Top-of-the-Pyramid.jpg" alt="AI and the future of human value"></div>
+        <div class="body">
+          <span class="tag">AI</span>
+          <h3>AI and the future of human value</h3>
+          <div class="meta"><span>5 min · EN</span><span class="read">Leggi →</span></div>
+        </div>
+      </a>
+      <a class="card" href="https://www.samantha-fund.com/tokenisation-the-next-financial-frontier/">
+        <div class="thumb"><img loading="lazy" src="https://www.samantha-fund.com/wp-content/uploads/2025/10/ChatGPT-Image-Oct-24-2025-12_24_39-PM.png" alt="Tokenisation"></div>
+        <div class="body">
+          <span class="tag">Finance</span>
+          <h3>Tokenisation: the next financial frontier</h3>
+          <div class="meta"><span>7 min · EN</span><span class="read">Leggi →</span></div>
+        </div>
+      </a>
+      <a class="card" href="https://www.samantha-fund.com/from-flowchart-to-app-the-future-of-work/">
+        <div class="thumb"><img loading="lazy" src="https://www.samantha-fund.com/wp-content/uploads/2026/03/IMG_20260306_211427.png" alt="From Flowchart to App"></div>
+        <div class="body">
+          <span class="tag">Future of Work</span>
+          <h3>From Flowchart to App: The Future of Work</h3>
+          <div class="meta"><span>6 min · EN</span><span class="read">Leggi →</span></div>
+        </div>
+      </a>
+      <a class="card" href="https://www.samantha-fund.com/wavecity-rome-the-story-behind-the-professional-wave-pool-business-plan/">
+        <div class="thumb"><img loading="lazy" src="https://www.samantha-fund.com/wp-content/uploads/2024/12/LogoWaveCity_small.jpg" alt="WaveCity Rome"></div>
+        <div class="body">
+          <span class="tag">Business</span>
+          <h3>WaveCity Rome: il business plan dietro al wave pool</h3>
+          <div class="meta"><span>8 min · EN</span><span class="read">Leggi →</span></div>
+        </div>
+      </a>
+      <a class="card" href="https://www.samantha-fund.com/die-kunst-del-fugae/">
+        <div class="thumb"><img loading="lazy" src="https://www.samantha-fund.com/wp-content/uploads/2026/04/Cover-Kunst-light.jpg" alt="Die Kunst der Fuge"></div>
+        <div class="body">
+          <span class="tag">Culture</span>
+          <h3>Die Kunst der Fuge: from music to consciousness</h3>
+          <div class="meta"><span>9 min · DE</span><span class="read">Leggi →</span></div>
+        </div>
+      </a>
+      <a class="card" href="https://www.samantha-fund.com/the-tech-revolution/">
+        <div class="thumb"><img loading="lazy" src="https://www.samantha-fund.com/wp-content/uploads/2024/12/samantha-fund.png" alt="AI Revolution"></div>
+        <div class="body">
+          <span class="tag">AI</span>
+          <h3>AI Revolution — il manifesto</h3>
+          <div class="meta"><span>6 min · EN</span><span class="read">Leggi →</span></div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Podcast -->
+<section id="podcast">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Il podcast</h2>
+        <p>Futurescope — conversazioni su AI, tecnologia e futuro del lavoro.</p>
+      </div>
+    </div>
+    <div class="podcast">
+      <div class="cover">
+        <img loading="lazy" src="https://www.samantha-fund.com/wp-content/uploads/2024/12/Futurescope-Light.jpg" alt="Cover podcast Futurescope">
+      </div>
+      <div class="body">
+        <span class="kicker">Futurescope · podcast</span>
+        <h3>Idee dal fronte della rivoluzione tech.</h3>
+        <p>Episodi brevi e densi: AI, blockchain, future of work, casi reali e analisi. Niente hype, solo quello che vale la pena ascoltare.</p>
+        <div class="platforms">
+          <span>Spotify</span>
+          <span>Apple Podcasts</span>
+          <span>YouTube</span>
+          <span>RSS</span>
+        </div>
+        <div class="actions">
+          <a href="https://www.samantha-fund.com/podcast-launch/" class="btn btn-primary">Ascolta gli episodi <span class="arr">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Shop -->
+<section id="shop" style="background:var(--bg-2);padding-top:88px;padding-bottom:88px">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Shop</h2>
+        <p>Merchandise ufficiale: pezzi limitati ispirati alla rivoluzione tech.</p>
+      </div>
+      <a href="#" class="more">Vedi tutto il catalogo →</a>
+    </div>
+    <div class="shop-grid">
+      <a class="product" href="https://samanthafund.myspreadshop.it" target="_blank" rel="noopener">
+        <div class="pic"><img loading="lazy" src="https://image.spreadshirtmedia.net/image-server/v1/products/T812A1252PA8515PT17X107Y123D353734626W17674H6328/views/1,width=500,height=500,appearanceId=1252,crop=list,modelId=15513/logo-g-bianco-orizzontale-removebg-preview-mens-premium-organic-t-shirt.jpg" alt="T-shirt Logo Samantha.Fund"></div>
+        <div class="info">
+          <span class="cat">T-shirt · Uomo</span>
+          <span class="name">Logo Samantha.Fund — Bio Premium</span>
+          <div class="price"><span class="amt">€ 27,99</span><span class="buy">Acquista →</span></div>
+        </div>
+      </a>
+      <a class="product" href="https://samanthafund.myspreadshop.it" target="_blank" rel="noopener">
+        <div class="pic"><img loading="lazy" src="https://image.spreadshirtmedia.net/image-server/v1/products/T813A1268PA8544PT17X77Y89D353734626W17674H6328/views/1,width=500,height=500,appearanceId=1268,crop=list,modelId=19575/logo-g-bianco-orizzontale-removebg-preview-womens-premium-organic-t-shirt.jpg" alt="T-shirt Logo Samantha.Fund Donna"></div>
+        <div class="info">
+          <span class="cat">T-shirt · Donna</span>
+          <span class="name">Logo Samantha.Fund — Bio Premium</span>
+          <div class="price"><span class="amt">€ 27,99</span><span class="buy">Acquista →</span></div>
+        </div>
+      </a>
+      <a class="product" href="https://samanthafund.myspreadshop.it" target="_blank" rel="noopener">
+        <div class="pic"><img loading="lazy" src="https://image.spreadshirtmedia.net/image-server/v1/products/T812A366PA8515PT17X118Y89D341476530W15409H15493/views/1,width=500,height=500,appearanceId=1,crop=list,modelId=15513/in-loving-memory-mens-premium-organic-t-shirt.jpg" alt="T-shirt In Loving Memory"></div>
+        <div class="info">
+          <span class="cat">T-shirt · Uomo</span>
+          <span class="name">In Loving Memory — Bio Premium</span>
+          <div class="price"><span class="amt">€ 27,99</span><span class="buy">Acquista →</span></div>
+        </div>
+      </a>
+      <a class="product" href="https://samanthafund.myspreadshop.it" target="_blank" rel="noopener">
+        <div class="pic"><img loading="lazy" src="https://image.spreadshirtmedia.net/image-server/v1/products/T813A1PA8544PT17X57Y44D341476292W21674H21674/views/1,width=500,height=500,appearanceId=1256,crop=list,modelId=17103/loving-womens-premium-organic-t-shirt.jpg" alt="T-shirt Loving Donna"></div>
+        <div class="info">
+          <span class="cat">T-shirt · Donna</span>
+          <span class="name">Loving — Bio Premium</span>
+          <div class="price"><span class="amt">€ 27,99</span><span class="buy">Acquista →</span></div>
+        </div>
+      </a>
+    </div>
+    <div class="shop-cta-row">
+      <a href="https://samanthafund.myspreadshop.it" target="_blank" rel="noopener" class="btn btn-ghost">Vedi tutti i 20+ prodotti <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter section wrapper -->
+<section>
+  <div class="container">
+    <div class="cta-band">
+      <div>
+        <h3>Resta sul pezzo.</h3>
+        <p>Un'email ogni due settimane con quello che vale davvero la pena leggere su AI e tech. Niente spam.</p>
+      </div>
+      <form onsubmit="event.preventDefault();alert('Mockup — nessun invio reale');">
+        <input type="email" placeholder="la-tua-email@esempio.com" required>
+        <button type="submit">Iscrivimi</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="brand" style="margin-bottom:14px"><span class="dot"></span><span class="name">Samantha<span>.Fund</span></span></a>
+        <p>Progetto editoriale indipendente su tecnologia, AI e innovazione. Curato da Samantha.</p>
+      </div>
+      <div>
+        <h4>Esplora</h4>
+        <a href="#">Blog</a>
+        <a href="#">AI &amp; Tech</a>
+        <a href="#">Podcast</a>
+        <a href="#">Shop</a>
+      </div>
+      <div>
+        <h4>About</h4>
+        <a href="contatti.html">Contatti</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="cookie.html">Cookie Policy</a>
+        <a href="note-legali.html">Note legali</a>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <strong>Disclaimer.</strong> Samantha Fund è un progetto editoriale e divulgativo. <strong>Non costituisce un fondo di investimento regolamentato</strong>, non offre servizi di consulenza finanziaria, non sollecita la raccolta di capitali. I contenuti hanno finalità informativa e non rappresentano raccomandazioni di investimento. Le opinioni espresse sono dell'autrice.
+    </div>
+
+    <div class="copy">
+      <span>© 2026 Samantha Fund · Tutti i diritti riservati</span>
+      <span>Instagram: @samantha.fund</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
