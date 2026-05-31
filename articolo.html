@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Articolo — Samantha Fund</title>
+<meta name="description" content="Anteprima del layout articolo per il nuovo Samantha Fund.">
+<meta name="robots" content="noindex,follow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230A2540'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%2300D4FF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+:root{
+  --ink:#0A2540;
+  --ink-2:#1A2C44;
+  --cyan:#00D4FF;
+  --cyan-soft:#E6FAFF;
+  --bg:#FFFFFF;
+  --bg-2:#F7F9FC;
+  --line:#E6EAF0;
+  --text:#1A1A1A;
+  --muted:#5A6473;
+  --radius:14px;
+  --shadow:0 1px 2px rgba(10,37,64,.04), 0 8px 24px rgba(10,37,64,.06);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:760px;margin:0 auto;padding:0 28px}
+.container-wide{max-width:1180px;margin:0 auto;padding:0 28px}
+
+.legal-bar{background:var(--ink);color:#cfe7ff;font-size:12.5px;padding:10px 0;text-align:center;letter-spacing:.2px}
+.legal-bar strong{color:#fff;font-weight:600}
+
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.01em}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--ink),var(--cyan))}
+.brand .name{font-size:18px;color:var(--ink)}
+.brand .name span{color:var(--cyan);font-weight:600}
+.menu{display:flex;gap:6px;align-items:center}
+.menu a{padding:9px 14px;border-radius:10px;font-size:14.5px;color:var(--ink-2);font-weight:500;transition:.15s ease}
+.menu a:hover{background:var(--bg-2);color:var(--ink)}
+.menu .cta{background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px}
+.menu .cta:hover{background:#08182b}
+
+.article-head{padding:56px 0 32px;background:linear-gradient(180deg,#fff,#F7F9FC)}
+.breadcrumb{font-size:13.5px;color:var(--muted);margin-bottom:18px}
+.breadcrumb a{color:var(--muted)}
+.breadcrumb a:hover{color:var(--ink)}
+.breadcrumb .sep{margin:0 6px;opacity:.6}
+.article-tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--cyan-soft);padding:5px 11px;border-radius:6px;margin-bottom:14px}
+.article-title{font-size:clamp(32px,5vw,52px);line-height:1.1;letter-spacing:-.02em;color:var(--ink);font-weight:800;margin:0 0 14px;max-width:22ch}
+.article-lead{font-size:19px;color:var(--muted);margin:0 0 22px;max-width:60ch;line-height:1.55}
+.article-meta{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:14px;align-items:center}
+.article-meta .avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--ink),var(--cyan));display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px}
+.article-meta .author{color:var(--ink);font-weight:600}
+.article-meta .dot{width:4px;height:4px;border-radius:50%;background:#cfd6e0}
+
+.hero-img{margin-top:18px;aspect-ratio:16/8;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,#0A2540 0%,#143A5C 60%,#00D4FF 130%);position:relative}
+.hero-img::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 40%,rgba(255,255,255,.08),transparent 60%);pointer-events:none}
+.hero-img .badge{position:absolute;bottom:18px;left:18px;background:rgba(255,255,255,.92);color:var(--ink);font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;backdrop-filter:blur(8px)}
+
+.article-body{padding:48px 0 64px;font-size:17.5px;color:var(--ink-2)}
+.article-body h2{font-size:28px;letter-spacing:-.015em;color:var(--ink);margin:48px 0 14px;line-height:1.2}
+.article-body h3{font-size:22px;letter-spacing:-.01em;color:var(--ink);margin:36px 0 12px}
+.article-body p{margin:0 0 20px}
+.article-body blockquote{border-left:3px solid var(--cyan);padding:6px 0 6px 20px;margin:28px 0;color:var(--ink);font-style:italic;font-size:19px}
+.article-body ul{padding-left:20px;margin:0 0 22px}
+.article-body ul li{margin-bottom:8px}
+.article-body code{background:var(--bg-2);padding:2px 7px;border-radius:5px;font-size:.92em;font-family:'JetBrains Mono',Menlo,Consolas,monospace;color:var(--ink)}
+
+.placeholder-banner{margin:32px 0;padding:18px 22px;background:#FFF8E1;border:1px dashed #E6C45A;border-radius:12px;font-size:14px;color:#6b5300}
+.placeholder-banner strong{color:#3d2f00}
+
+.share-bar{display:flex;gap:8px;align-items:center;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:32px 0 0;font-size:14px;color:var(--muted)}
+.share-bar .label{font-weight:600;color:var(--ink);margin-right:8px}
+.share-bar .chip{padding:6px 12px;border-radius:8px;background:var(--bg-2);color:var(--ink-2);font-size:13px;font-weight:500;border:1px solid var(--line)}
+
+.related{padding:64px 0 80px;background:var(--bg-2);border-top:1px solid var(--line)}
+.related h2{font-size:24px;letter-spacing:-.015em;color:var(--ink);margin:0 0 24px}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.related-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;transition:.2s ease;cursor:pointer}
+.related-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#cdeefa}
+.related-card .tag{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);font-weight:700;background:var(--cyan-soft);padding:3px 8px;border-radius:5px;display:inline-block;margin-bottom:8px}
+.related-card h3{margin:0 0 6px;font-size:16px;line-height:1.35;color:var(--ink)}
+.related-card .meta{font-size:13px;color:var(--muted)}
+
+.back-cta{text-align:center;padding:32px 0 16px}
+.back-cta a{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--ink);font-size:15px}
+.back-cta a:hover{color:var(--cyan)}
+
+footer{padding:48px 0 32px;border-top:1px solid var(--line);background:var(--bg-2)}
+.copy{color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media (max-width: 720px){
+  .related-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="legal-bar">
+  <div class="container-wide">
+    <strong>Samantha Fund</strong> è un progetto editoriale su tecnologia, AI e innovazione · <strong>NON è un fondo di investimento regolamentato</strong> e non offre consulenza finanziaria.
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="container-wide nav-inner">
+    <a href="index.html" class="brand"><span class="dot"></span><span class="name">Samantha<span>.Fund</span></span></a>
+    <div class="menu">
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#tech">AI &amp; Tech</a>
+      <a href="index.html#podcast">Podcast</a>
+      <a href="index.html#shop">Shop</a>
+      <a href="contatti.html" class="cta">Contatti</a>
+    </div>
+  </div>
+</nav>
+
+<header class="article-head">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span class="sep">/</span><a href="index.html#blog">Blog</a><span class="sep">/</span>AI &amp; Tech
+    </div>
+    <span class="article-tag" id="article-tag">AI</span>
+    <h1 class="article-title" id="article-title">AI and the future of human value</h1>
+    <p class="article-lead" id="article-lead">Una riflessione su cosa significa essere utili nell'epoca degli agenti autonomi — non più cosa sai fare, ma cosa scegli di fare.</p>
+    <div class="article-meta">
+      <span class="avatar">S</span>
+      <span class="author">Samantha</span>
+      <span class="dot"></span>
+      <span>5 min · EN</span>
+      <span class="dot"></span>
+      <span>14 marzo 2026</span>
+    </div>
+
+    <div class="hero-img">
+      <span class="badge">Anteprima · placeholder design</span>
+    </div>
+  </div>
+</header>
+
+<article class="article-body">
+  <div class="container">
+
+    <div class="placeholder-banner">
+      <strong>Anteprima.</strong> Questa è l'impalcatura della pagina articolo nel nuovo design — testo, immagini e tag sono di esempio. I contenuti reali rimangono ancora sul sito attuale (samantha-fund.com) e verranno migrati con il go-live del redesign.
+    </div>
+
+    <p>Per molti anni il "valore umano" si è misurato in produttività: quante cose riusciamo a fare, quanto in fretta, con quanta precisione. È stato un buon modello — finché esisteva una netta linea di confine tra quello che faceva una macchina e quello che facevamo noi.</p>
+
+    <p>Quella linea sta scomparendo. I sistemi AI generativi del 2026 scrivono codice, analizzano contratti, sintetizzano interviste, generano illustrazioni, conducono ricerche di mercato. E lo fanno meglio della media degli umani. Non sempre meglio dei migliori, ma quasi sempre meglio della media.</p>
+
+    <blockquote>La domanda non è più "cosa sai fare?" — la domanda è "cosa scegli di fare, sapendo che potresti delegarlo?".</blockquote>
+
+    <h2>Tre cambiamenti già in atto</h2>
+
+    <p>Stiamo assistendo a tre traiettorie parallele, ognuna delle quali ridefinisce un pezzo del rapporto tra umani e produttività:</p>
+
+    <ul>
+      <li><strong>Dal "fare" al "decidere".</strong> L'esecuzione è commodity, la scelta di cosa eseguire è il vantaggio.</li>
+      <li><strong>Dal sapere al notare.</strong> L'accesso alla conoscenza è ubiquo; quello che differenzia è capire cosa è rilevante.</li>
+      <li><strong>Dalla precisione al gusto.</strong> Le decisioni estetiche, di tono, di taglio — quelle non si automatizzano.</li>
+    </ul>
+
+    <h3>Un esempio concreto</h3>
+
+    <p>Prendiamo un'attività relativamente semplice come scrivere una proposta commerciale. Cinque anni fa richiedeva ore di lavoro: ricerca del cliente, stesura, revisione, formattazione. Oggi un buon prompt produce una bozza in trenta secondi.</p>
+
+    <p>Quello che resta umano è: <code>capire cosa proporre</code>, <code>scegliere quale tono usare con quel cliente specifico</code>, <code>decidere cosa NON includere</code>. Il valore si è spostato a monte.</p>
+
+    <h2>Conseguenze per chi lavora con la conoscenza</h2>
+
+    <p>Per chi vive di lavoro intellettuale — programmatori, designer, scrittori, analisti, consulenti — la curva di apprendimento si sta riconfigurando. Le skill tecniche di base si comprimono (l'AI le riempie), le skill di giudizio diventano differenziali.</p>
+
+    <p>Questo non significa che le competenze tecniche perdano valore: significa che <strong>diventano una soglia di accesso</strong>, non un vantaggio competitivo. La differenza la fa quello che ci sta sopra.</p>
+
+    <div class="share-bar">
+      <span class="label">Condividi:</span>
+      <span class="chip">LinkedIn</span>
+      <span class="chip">X / Twitter</span>
+      <span class="chip">Copia link</span>
+    </div>
+
+  </div>
+</article>
+
+<section class="related">
+  <div class="container-wide">
+    <h2>Continua a leggere</h2>
+    <div class="related-grid">
+      <a class="related-card" href="articolo.html">
+        <span class="tag">Finance</span>
+        <h3>Tokenisation: the next financial frontier</h3>
+        <div class="meta">7 min · EN</div>
+      </a>
+      <a class="related-card" href="articolo.html">
+        <span class="tag">Future of Work</span>
+        <h3>From Flowchart to App: The Future of Work</h3>
+        <div class="meta">6 min · EN</div>
+      </a>
+      <a class="related-card" href="articolo.html">
+        <span class="tag">Business</span>
+        <h3>WaveCity Rome: il business plan dietro al wave pool</h3>
+        <div class="meta">8 min · EN</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="back-cta">
+  <a href="index.html">← Torna alla home</a>
+</div>
+
+<footer>
+  <div class="container-wide">
+    <div class="copy">
+      <span>© 2026 Samantha Fund · Anteprima redesign</span>
+      <span>Instagram: @samantha.fund</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mostra titolo/tag corrispondente alla card cliccata (passato via ?from=slug nel link)
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var from = params.get('from');
+  var map = {
+    "ai":           { tag: "AI",             title: "AI and the future of human value",                lead: "Una riflessione su cosa significa essere utili nell’epoca degli agenti autonomi." },
+    "tokenisation": { tag: "Finance",        title: "Tokenisation: the next financial frontier",       lead: "Asset digitali, blockchain e nuove forme di valore. Analisi divulgativa." },
+    "flowchart":    { tag: "Future of Work", title: "From Flowchart to App: The Future of Work",       lead: "Dal diagramma al prodotto: come l’AI ridefinisce il ciclo di sviluppo." },
+    "wavecity":     { tag: "Business",       title: "WaveCity Rome: il business plan dietro al wave pool", lead: "Numeri, modello operativo, ROI atteso. Cosa serve per costruire una wave pool professionale a Roma." },
+    "kunst":        { tag: "Culture",        title: "Die Kunst der Fuge: from music to consciousness", lead: "Dalla fuga di Bach a una teoria della coscienza musicale." },
+    "tech":         { tag: "AI",             title: "AI Revolution — il manifesto",                lead: "Il manifesto del progetto Samantha Fund: capire la rivoluzione tech, non solo seguirla." }
+  };
+  if (from && map[from]) {
+    var d = map[from];
+    document.getElementById('article-tag').textContent = d.tag;
+    document.getElementById('article-title').textContent = d.title;
+    document.getElementById('article-lead').textContent = d.lead;
+    document.title = d.title + ' — Samantha Fund';
+  }
+})();
+</script>
+
+</body>
+</html>
