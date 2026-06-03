@@ -126,7 +126,7 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);background:var(--bg-
 <header class="article-head">
   <div class="container">
     <div class="breadcrumb">
-      <a href="index.html">Home</a><span class="sep">/</span><a href="index.html#blog">Blog</a><span class="sep">/</span>AI &amp; Tech
+      <a href="index.html">Home</a><span class="sep">/</span><a href="index.html#blog">Blog</a><span class="sep">/</span><span id="article-cat">AI &amp; Tech</span>
     </div>
     <span class="article-tag" id="article-tag">AI</span>
     <h1 class="article-title" id="article-title">AI and the future of human value</h1>
@@ -135,9 +135,9 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);background:var(--bg-
       <span class="avatar">S</span>
       <span class="author">Samantha</span>
       <span class="dot"></span>
-      <span>5 min · EN</span>
+      <span id="article-read">5 min · EN</span>
       <span class="dot"></span>
-      <span>14 marzo 2026</span>
+      <span id="article-date">14 marzo 2026</span>
     </div>
 
     <div class="hero-img">
@@ -183,9 +183,9 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);background:var(--bg-
 
     <div class="share-bar">
       <span class="label">Condividi:</span>
-      <span class="chip">LinkedIn</span>
-      <span class="chip">X / Twitter</span>
-      <span class="chip">Copia link</span>
+      <a class="chip" id="share-linkedin" target="_blank" rel="noopener" href="#">LinkedIn</a>
+      <a class="chip" id="share-x" target="_blank" rel="noopener" href="#">X / Twitter</a>
+      <a class="chip" id="share-copy" role="button" href="#">Copia link</a>
     </div>
 
   </div>
@@ -195,17 +195,17 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);background:var(--bg-
   <div class="container-wide">
     <h2>Continua a leggere</h2>
     <div class="related-grid">
-      <a class="related-card" href="articolo.html">
+      <a class="related-card" href="articolo.html?from=tokenisation">
         <span class="tag">Finance</span>
         <h3>Tokenisation: the next financial frontier</h3>
         <div class="meta">7 min · EN</div>
       </a>
-      <a class="related-card" href="articolo.html">
+      <a class="related-card" href="articolo.html?from=flowchart">
         <span class="tag">Future of Work</span>
         <h3>From Flowchart to App: The Future of Work</h3>
         <div class="meta">6 min · EN</div>
       </a>
-      <a class="related-card" href="articolo.html">
+      <a class="related-card" href="articolo.html?from=wavecity">
         <span class="tag">Business</span>
         <h3>WaveCity Rome: il business plan dietro al wave pool</h3>
         <div class="meta">8 min · EN</div>
@@ -228,25 +228,45 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);background:var(--bg-
 </footer>
 
 <script>
-// Mostra titolo/tag corrispondente alla card cliccata (passato via ?from=slug nel link)
+// Mostra titolo/tag/categoria/meta corrispondenti alla card cliccata (via ?from=slug nel link)
 (function(){
   var params = new URLSearchParams(window.location.search);
   var from = params.get('from');
   var map = {
-    "ai":           { tag: "AI",             title: "AI and the future of human value",                lead: "Una riflessione su cosa significa essere utili nell’epoca degli agenti autonomi." },
-    "tokenisation": { tag: "Finance",        title: "Tokenisation: the next financial frontier",       lead: "Asset digitali, blockchain e nuove forme di valore. Analisi divulgativa." },
-    "flowchart":    { tag: "Future of Work", title: "From Flowchart to App: The Future of Work",       lead: "Dal diagramma al prodotto: come l’AI ridefinisce il ciclo di sviluppo." },
-    "wavecity":     { tag: "Business",       title: "WaveCity Rome: il business plan dietro al wave pool", lead: "Numeri, modello operativo, ROI atteso. Cosa serve per costruire una wave pool professionale a Roma." },
-    "kunst":        { tag: "Culture",        title: "Die Kunst der Fuge: from music to consciousness", lead: "Dalla fuga di Bach a una teoria della coscienza musicale." },
-    "tech":         { tag: "AI",             title: "AI Revolution — il manifesto",                lead: "Il manifesto del progetto Samantha Fund: capire la rivoluzione tech, non solo seguirla." }
+    "ai":           { tag: "AI",             cat: "AI &amp; Tech",   read: "5 min · EN", date: "14 marzo 2026",   title: "AI and the future of human value",                lead: "Una riflessione su cosa significa essere utili nell’epoca degli agenti autonomi." },
+    "tokenisation": { tag: "Finance",        cat: "Finance",         read: "7 min · EN", date: "2 marzo 2026",    title: "Tokenisation: the next financial frontier",       lead: "Asset digitali, blockchain e nuove forme di valore. Analisi divulgativa." },
+    "flowchart":    { tag: "Future of Work", cat: "Future of Work",  read: "6 min · EN", date: "20 febbraio 2026", title: "From Flowchart to App: The Future of Work",       lead: "Dal diagramma al prodotto: come l’AI ridefinisce il ciclo di sviluppo." },
+    "wavecity":     { tag: "Business",       cat: "Business",        read: "8 min · EN", date: "8 febbraio 2026",  title: "WaveCity Rome: il business plan dietro al wave pool", lead: "Numeri, modello operativo, ROI atteso. Cosa serve per costruire una wave pool professionale a Roma." },
+    "kunst":        { tag: "Culture",        cat: "Culture",         read: "6 min · EN", date: "28 gennaio 2026", title: "Die Kunst der Fuge: from music to consciousness", lead: "Dalla fuga di Bach a una teoria della coscienza musicale." },
+    "tech":         { tag: "AI",             cat: "AI &amp; Tech",   read: "4 min · EN", date: "15 gennaio 2026", title: "AI Revolution — il manifesto",                lead: "Il manifesto del progetto Samantha Fund: capire la rivoluzione tech, non solo seguirla." }
   };
+  var set = function(id, val, html){ var el = document.getElementById(id); if (el){ if (html) el.innerHTML = val; else el.textContent = val; } };
   if (from && map[from]) {
     var d = map[from];
-    document.getElementById('article-tag').textContent = d.tag;
-    document.getElementById('article-title').textContent = d.title;
-    document.getElementById('article-lead').textContent = d.lead;
+    set('article-tag', d.tag);
+    set('article-title', d.title);
+    set('article-lead', d.lead);
+    set('article-cat', d.cat, true);
+    set('article-read', d.read);
+    set('article-date', d.date);
     document.title = d.title + ' — Samantha Fund';
   }
+
+  // Condivisione: link reali (basati sull'URL corrente, incluso ?from=) + copia negli appunti
+  var url = encodeURIComponent(window.location.href);
+  var txt = encodeURIComponent(document.title);
+  var li = document.getElementById('share-linkedin');
+  if (li) li.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + url;
+  var x = document.getElementById('share-x');
+  if (x) x.href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + txt;
+  var copy = document.getElementById('share-copy');
+  if (copy) copy.addEventListener('click', function(e){
+    e.preventDefault();
+    var done = function(){ var o = copy.textContent; copy.textContent = 'Copiato ✓'; setTimeout(function(){ copy.textContent = o; }, 1600); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(window.location.href).then(done).catch(done);
+    } else { done(); }
+  });
 })();
 </script>
 
