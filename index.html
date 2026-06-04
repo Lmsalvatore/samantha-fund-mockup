@@ -84,6 +84,11 @@ img{max-width:100%;display:block}
   background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;
 }
 .menu .cta:hover{background:#08182b}
+.menu-toggle{
+  display:none;background:none;border:1px solid var(--line);border-radius:10px;
+  width:42px;height:42px;font-size:20px;line-height:1;color:var(--ink);
+  cursor:pointer;align-items:center;justify-content:center;
+}
 
 /* Hero */
 .hero{
@@ -286,7 +291,17 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line);background:var(--bg-
   .podcast .cover{max-width:280px;margin:0 auto}
   .cta-band{grid-template-columns:1fr;padding:40px 28px}
   .foot-grid{grid-template-columns:1fr 1fr}
-  .menu a:not(.cta){display:none}
+  .menu-toggle{display:inline-flex}
+  .menu{
+    position:absolute;top:68px;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:0;
+    background:rgba(255,255,255,.98);backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid var(--line);padding:8px 20px 16px;
+    box-shadow:var(--shadow);display:none;
+  }
+  .menu.open{display:flex}
+  .menu a{padding:12px 14px;border-radius:10px}
+  .menu .cta{text-align:center;margin-top:6px}
 }
 @media (max-width: 600px){
   .pillars,.grid,.foot-grid,.shop-grid{grid-template-columns:1fr}
@@ -308,12 +323,12 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line);background:var(--bg-
 <nav class="nav">
   <div class="container nav-inner">
     <a href="index.html" class="brand"><span class="dot"></span><span class="name">Samantha<span>.Fund</span></span></a>
-    <div class="menu">
+    <button class="menu-toggle" aria-label="Apri menu" aria-expanded="false" aria-controls="site-menu" onclick="var m=document.getElementById('site-menu');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Chiudi menu':'Apri menu');this.innerHTML=o?'&#10005;':'&#9776;'">&#9776;</button>
+    <div class="menu" id="site-menu">
       <a href="#blog">Blog</a>
       <a href="#tech">AI &amp; Tech</a>
       <a href="#podcast">Podcast</a>
       <a href="#shop">Shop</a>
-      <a href="#about">About</a>
       <a href="contatti.html" class="cta">Contatti</a>
     </div>
   </div>
@@ -374,7 +389,7 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line);background:var(--bg-
         <h2>Ultimi articoli</h2>
         <p>Selezione dal blog. Italiano, inglese, qualche tedesco quando serve.</p>
       </div>
-      <a href="#" class="more">Tutti gli articoli →</a>
+      <a href="#blog" class="more">Tutti gli articoli →</a>
     </div>
     <div class="grid">
       <a class="card" href="articolo.html?from=ai">
@@ -469,7 +484,7 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line);background:var(--bg-
         <h2>Shop</h2>
         <p>Merchandise ufficiale: pezzi limitati ispirati alla rivoluzione tech.</p>
       </div>
-      <a href="#" class="more">Vedi tutto il catalogo →</a>
+      <a href="https://samanthafund.myspreadshop.it" target="_blank" rel="noopener" class="more">Vedi tutto il catalogo →</a>
     </div>
     <div class="shop-grid">
       <a class="product" href="https://samanthafund.myspreadshop.it" target="_blank" rel="noopener">
@@ -532,15 +547,15 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line);background:var(--bg-
   <div class="container">
     <div class="foot-grid">
       <div>
-        <a href="#" class="brand" style="margin-bottom:14px"><span class="dot"></span><span class="name">Samantha<span>.Fund</span></span></a>
+        <a href="index.html" class="brand" style="margin-bottom:14px"><span class="dot"></span><span class="name">Samantha<span>.Fund</span></span></a>
         <p>Progetto editoriale indipendente su tecnologia, AI e innovazione. Curato da Samantha.</p>
       </div>
       <div>
         <h4>Esplora</h4>
-        <a href="#">Blog</a>
-        <a href="#">AI &amp; Tech</a>
-        <a href="#">Podcast</a>
-        <a href="#">Shop</a>
+        <a href="#blog">Blog</a>
+        <a href="#tech">AI &amp; Tech</a>
+        <a href="#podcast">Podcast</a>
+        <a href="#shop">Shop</a>
       </div>
       <div>
         <h4>About</h4>
