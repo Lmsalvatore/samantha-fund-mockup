@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulting — Samantha.Fund</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0A2540;
+      --cyan: #00D4FF;
+      --cyan-dim: rgba(0, 212, 255, 0.10);
+      --cyan-mid: rgba(0, 212, 255, 0.20);
+      --muted: #5a7a96;
+      --border: rgba(10, 37, 64, 0.12);
+      --font: 'Space Grotesk', sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background: #fff;
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ── DISCLAIMER BAR ── */
+    .disclaimer-bar {
+      background: var(--ink);
+      color: rgba(255,255,255,0.6);
+      font-size: 11px;
+      text-align: center;
+      padding: 8px 24px;
+    }
+    .disclaimer-bar strong { color: var(--cyan); }
+
+    /* ── NAV ── */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 16px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav-brand span { color: var(--cyan); }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .nav-links a.active { color: var(--ink); }
+    .nav-cta {
+      background: var(--ink);
+      color: #fff !important;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--ink);
+      color: #fff;
+      padding: 72px 64px 64px;
+    }
+    .hero-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--cyan);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      max-width: 640px;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--cyan);
+    }
+    .hero p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.65);
+      max-width: 560px;
+      line-height: 1.65;
+    }
+
+    /* ── MAIN ── */
+    main { max-width: 1100px; margin: 0 auto; padding: 64px 64px; }
+
+    /* ── AUDIENCES ── */
+    .audiences {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+    .audience-card {
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .audience-card.highlighted {
+      border-color: var(--cyan);
+      background: var(--cyan-dim);
+    }
+    .audience-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--cyan);
+      background: var(--ink);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .audience-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .audience-card p {
+      font-size: 14px;
+      color: #3a5a74;
+      line-height: 1.65;
+    }
+
+    /* ── SERVICES ── */
+    .services-section { margin-bottom: 64px; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .service-card {
+      background: #f7f9fb;
+      border-radius: 10px;
+      padding: 24px 20px;
+    }
+    .service-card .icon {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+    .service-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+    .service-card p {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ── TECH FOCUS ── */
+    .tech-section {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 64px;
+      color: #fff;
+    }
+    .tech-section .section-label { color: var(--cyan); }
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .tech-pill {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 999px;
+    }
+    .tech-pill.active {
+      background: var(--cyan);
+      color: var(--ink);
+      border-color: var(--cyan);
+      font-weight: 700;
+    }
+
+    /* ── CTA ── */
+    .cta-strip {
+      background: var(--cyan-dim);
+      border-radius: 12px;
+      padding: 36px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .cta-strip div h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .cta-strip div p {
+      font-size: 14px;
+      color: #3a5a74;
+    }
+    .cta-strip a {
+      display: inline-block;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* ── FOOTER DISCLAIMER ── */
+    .footer-disclaimer {
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 48px 24px 40px; }
+      .hero h1 { font-size: 30px; }
+      main { padding: 40px 24px; }
+      .audiences { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .cta-strip { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="disclaimer-bar">
+  <strong>Note:</strong> Samantha.Fund provides technology &amp; strategy advisory only. This is not financial or investment advice.
+</div>
+
+<nav>
+  <a href="index.html" class="nav-brand">Samantha<span>.</span>Fund</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="thesis.html">Thesis</a>
+    <a href="consulting.html" class="active">Consulting</a>
+    <a href="mailto:luca@samantha.fund" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">Advisory Services</div>
+  <h1>Technology &amp; Strategy<br><em>Consulting</em></h1>
+  <p>We work with startups, scale-ups and established organisations navigating the AI transition, digital transformation, and the emerging tokenised economy.</p>
+</div>
+
+<main>
+
+  <!-- WHO WE WORK WITH -->
+  <div class="audiences">
+    <div class="audience-card highlighted">
+      <div class="audience-tag">Startups &amp; Scale-ups</div>
+      <h3>Build faster. Position smarter.</h3>
+      <p>Early-stage founders building in AI, Web3, biotech or cleantech who need hands-on strategic support: from go-to-market and positioning, to governance, fundraising readiness, and operational build-out.</p>
+    </div>
+    <div class="audience-card">
+      <div class="audience-tag">Corporates &amp; Institutions</div>
+      <h3>Navigate the AI &amp; tech transition.</h3>
+      <p>Established organisations — across manufacturing, fashion, food, pharma, and finance — looking to understand and act on emerging technologies: AI adoption, tokenisation of assets, digital product strategy, and regulatory compliance (EU AI Act, DORA, NIS2).</p>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <div class="services-section">
+    <div class="section-label">What We Do</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="icon">🧭</div>
+        <h4>Strategy</h4>
+        <p>Competitive positioning, go-to-market design, product-market fit, and long-range vision.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">📊</div>
+        <h4>Financial Modelling</h4>
+        <p>Business model design, unit economics, scenario planning. Not investment advice — operational finance only.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">📣</div>
+        <h4>Branding &amp; Marketing</h4>
+        <p>Brand identity, narrative, content strategy, and digital presence for tech-first companies.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">🏛️</div>
+        <h4>Governance</h4>
+        <p>Cap table structure, board composition, corporate governance, and regulatory readiness (EU AI Act, GDPR, DORA).</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">🔍</div>
+        <h4>Due Diligence Support</h4>
+        <p>Technology, team, and market diligence for companies preparing for partnerships or strategic transactions.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">👥</div>
+        <h4>HR &amp; Talent</h4>
+        <p>Org design, founding team assessment, key hire profiling, and leadership coaching for scale-up phase.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">🌐</div>
+        <h4>Network &amp; Introductions</h4>
+        <p>Access to a curated network across Italian and European tech ecosystems, corporate partners, and advisors.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">🚀</div>
+        <h4>Business Development</h4>
+        <p>Partner identification, channel strategy, and commercial deal support across Made in Italy verticals.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TECH FOCUS -->
+  <div class="tech-section">
+    <div class="section-label">Technology Focus Areas — 2026</div>
+    <div class="tech-pills">
+      <span class="tech-pill active">Generative AI &amp; Agents</span>
+      <span class="tech-pill active">Tokenisation &amp; RWA</span>
+      <span class="tech-pill active">Longevity &amp; Digital Health</span>
+      <span class="tech-pill active">Cleantech &amp; Energy Transition</span>
+      <span class="tech-pill">Cyber Security</span>
+      <span class="tech-pill">EU AI Act Compliance</span>
+      <span class="tech-pill">AI × Fashion &amp; Luxury</span>
+      <span class="tech-pill">AI × Food &amp; Agritech</span>
+      <span class="tech-pill">Advanced Manufacturing</span>
+      <span class="tech-pill">Web3 Infrastructure</span>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-strip">
+    <div>
+      <h3>Let's work together.</h3>
+      <p>Tell us about your company and what you're building — we'll get back within 48 hours.</p>
+    </div>
+    <a href="mailto:luca@samantha.fund">luca@samantha.fund</a>
+  </div>
+
+  <!-- FOOTER DISCLAIMER -->
+  <div class="footer-disclaimer">
+    <strong>Disclaimer:</strong> Samantha.Fund provides technology and business strategy consulting services only. Nothing on this page constitutes financial advice, investment advice, or any form of regulated financial service. Samantha.Fund is not a licensed investment advisor, fund manager, or financial intermediary. All engagements are advisory in nature. Any reference to financial modelling or business valuation is strictly for operational planning purposes and does not constitute a solicitation or offer to invest.
+  </div>
+
+</main>
+
+</body>
+</html>
