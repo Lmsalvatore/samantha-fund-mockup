@@ -77,6 +77,27 @@ img{max-width:100%;display:block}
 .placeholder-banner{margin:32px 0;padding:18px 22px;background:#FFF8E1;border:1px dashed #E6C45A;border-radius:12px;font-size:14px;color:#6b5300}
 .placeholder-banner strong{color:#3d2f00}
 
+/* WP content */
+.wp-content p{margin:0 0 20px;font-size:17.5px;color:var(--ink-2);line-height:1.75}
+.wp-content h2{font-size:28px;letter-spacing:-.015em;color:var(--ink);margin:48px 0 14px;line-height:1.2}
+.wp-content h3{font-size:22px;letter-spacing:-.01em;color:var(--ink);margin:36px 0 12px}
+.wp-content blockquote{border-left:3px solid var(--cyan);padding:6px 0 6px 20px;margin:28px 0;color:var(--ink);font-style:italic;font-size:19px}
+.wp-content ul,.wp-content ol{padding-left:22px;margin:0 0 22px;font-size:17px;color:var(--ink-2)}
+.wp-content ul li,.wp-content ol li{margin-bottom:8px;line-height:1.65}
+.wp-content figure{margin:32px 0}
+.wp-content figure img{border-radius:12px;max-width:100%}
+.wp-content figcaption{font-size:13px;color:var(--muted);text-align:center;margin-top:8px}
+.wp-content a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--cyan);text-underline-offset:3px}
+.wp-content strong{color:var(--ink)}
+.wp-content iframe{max-width:100%;border-radius:12px}
+.wp-content .wp-block-image{margin:32px 0}
+
+/* Loading skeleton */
+.loading-skeleton{animation:shimmer 1.4s infinite linear}
+.skel-line{background:linear-gradient(90deg,#eee 25%,#f5f5f5 50%,#eee 75%);background-size:400% 100%;border-radius:6px;height:18px;margin-bottom:14px}
+.skel-line.w80{width:80%}.skel-line.w60{width:60%}.skel-line.w90{width:90%}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
 .share-bar{display:flex;gap:8px;align-items:center;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:32px 0 0;font-size:14px;color:var(--muted)}
 .share-bar .label{font-weight:600;color:var(--ink);margin-right:8px}
 .share-bar .chip{padding:6px 12px;border-radius:8px;background:var(--bg-2);color:var(--ink-2);font-size:13px;font-weight:500;border:1px solid var(--line)}
@@ -149,39 +170,17 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);background:var(--bg-
 </header>
 
 <article class="article-body">
-  <div class="container">
+  <div class="container" id="article-content">
 
-    <div class="placeholder-banner">
-      <strong>Anteprima.</strong> Questa è l'impalcatura della pagina articolo nel nuovo design — testo, immagini e tag sono di esempio. I contenuti reali rimangono ancora sul sito attuale (samantha-fund.com) e verranno migrati con il go-live del redesign.
+    <div id="article-body-inner">
+      <div class="placeholder-banner" id="placeholder-banner">
+        <strong>Caricamento...</strong> Sto recuperando l'articolo da samantha-fund.com.
+      </div>
+      <div id="loading-skel" class="loading-skeleton" style="display:none">
+        <div class="skel-line w80"></div><div class="skel-line w90"></div><div class="skel-line w60"></div>
+        <div class="skel-line w90" style="margin-top:28px"></div><div class="skel-line w80"></div><div class="skel-line w90"></div>
+      </div>
     </div>
-
-    <p>Per molti anni il "valore umano" si è misurato in produttività: quante cose riusciamo a fare, quanto in fretta, con quanta precisione. È stato un buon modello — finché esisteva una netta linea di confine tra quello che faceva una macchina e quello che facevamo noi.</p>
-
-    <p>Quella linea sta scomparendo. I sistemi AI generativi del 2026 scrivono codice, analizzano contratti, sintetizzano interviste, generano illustrazioni, conducono ricerche di mercato. E lo fanno meglio della media degli umani. Non sempre meglio dei migliori, ma quasi sempre meglio della media.</p>
-
-    <blockquote>La domanda non è più "cosa sai fare?" — la domanda è "cosa scegli di fare, sapendo che potresti delegarlo?".</blockquote>
-
-    <h2>Tre cambiamenti già in atto</h2>
-
-    <p>Stiamo assistendo a tre traiettorie parallele, ognuna delle quali ridefinisce un pezzo del rapporto tra umani e produttività:</p>
-
-    <ul>
-      <li><strong>Dal "fare" al "decidere".</strong> L'esecuzione è commodity, la scelta di cosa eseguire è il vantaggio.</li>
-      <li><strong>Dal sapere al notare.</strong> L'accesso alla conoscenza è ubiquo; quello che differenzia è capire cosa è rilevante.</li>
-      <li><strong>Dalla precisione al gusto.</strong> Le decisioni estetiche, di tono, di taglio — quelle non si automatizzano.</li>
-    </ul>
-
-    <h3>Un esempio concreto</h3>
-
-    <p>Prendiamo un'attività relativamente semplice come scrivere una proposta commerciale. Cinque anni fa richiedeva ore di lavoro: ricerca del cliente, stesura, revisione, formattazione. Oggi un buon prompt produce una bozza in trenta secondi.</p>
-
-    <p>Quello che resta umano è: <code>capire cosa proporre</code>, <code>scegliere quale tono usare con quel cliente specifico</code>, <code>decidere cosa NON includere</code>. Il valore si è spostato a monte.</p>
-
-    <h2>Conseguenze per chi lavora con la conoscenza</h2>
-
-    <p>Per chi vive di lavoro intellettuale — programmatori, designer, scrittori, analisti, consulenti — la curva di apprendimento si sta riconfigurando. Le skill tecniche di base si comprimono (l'AI le riempie), le skill di giudizio diventano differenziali.</p>
-
-    <p>Questo non significa che le competenze tecniche perdano valore: significa che <strong>diventano una soglia di accesso</strong>, non un vantaggio competitivo. La differenza la fa quello che ci sta sopra.</p>
 
     <div class="share-bar">
       <span class="label">Condividi:</span>
@@ -230,45 +229,138 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);background:var(--bg-
 </footer>
 
 <script>
-// Mostra titolo/tag/categoria/meta corrispondenti alla card cliccata (via ?from=slug nel link)
-(function(){
-  var params = new URLSearchParams(window.location.search);
-  var from = params.get('from');
-  var map = {
-    "ai":           { tag: "AI",             cat: "AI &amp; Tech",   read: "5 min · EN", date: "14 marzo 2026",   title: "AI and the future of human value",                lead: "Una riflessione su cosa significa essere utili nell’epoca degli agenti autonomi." },
-    "tokenisation": { tag: "Finance",        cat: "Finance",         read: "7 min · EN", date: "2 marzo 2026",    title: "Tokenisation: the next financial frontier",       lead: "Asset digitali, blockchain e nuove forme di valore. Analisi divulgativa." },
-    "flowchart":    { tag: "Future of Work", cat: "Future of Work",  read: "6 min · EN", date: "20 febbraio 2026", title: "From Flowchart to App: The Future of Work",       lead: "Dal diagramma al prodotto: come l’AI ridefinisce il ciclo di sviluppo." },
-    "wavecity":     { tag: "Business",       cat: "Business",        read: "8 min · EN", date: "8 febbraio 2026",  title: "WaveCity Rome: il business plan dietro al wave pool", lead: "Numeri, modello operativo, ROI atteso. Cosa serve per costruire una wave pool professionale a Roma." },
-    "kunst":        { tag: "Culture",        cat: "Culture",         read: "6 min · EN", date: "28 gennaio 2026", title: "Die Kunst der Fuge: from music to consciousness", lead: "Dalla fuga di Bach a una teoria della coscienza musicale." },
-    "tech":         { tag: "AI",             cat: "AI &amp; Tech",   read: "4 min · EN", date: "15 gennaio 2026", title: "AI Revolution — il manifesto",                lead: "Il manifesto del progetto Samantha Fund: capire la rivoluzione tech, non solo seguirla." }
-  };
-  var set = function(id, val, html){ var el = document.getElementById(id); if (el){ if (html) el.innerHTML = val; else el.textContent = val; } };
-  if (from && map[from]) {
-    var d = map[from];
-    set('article-tag', d.tag);
-    set('article-title', d.title);
-    set('article-lead', d.lead);
-    set('article-cat', d.cat, true);
-    set('article-read', d.read);
-    set('article-date', d.date);
-    document.title = d.title + ' — Samantha Fund';
-  }
+// Mappa backward-compat: slug corti usati nelle card → slug WP reali
+var SLUG_MAP = {
+  "ai":           "ai-economic-disruption-human-value",
+  "tokenisation": "tokenisation-the-next-financial-frontier",
+  "flowchart":    "from-flowchart-to-app-the-future-of-work",
+  "wavecity":     "wavecity-rome-the-story-behind-the-professional-wave-pool-business-plan",
+  "kunst":        "die-kunst-del-fugae",
+  "tech":         "future-of-consulting-adapting-to-ai-challenges"
+};
 
-  // Condivisione: link reali (basati sull'URL corrente, incluso ?from=) + copia negli appunti
+var WP_API = "https://www.samantha-fund.com/wp-json/wp/v2";
+
+function set(id, val, html) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  if (html) el.innerHTML = val; else el.textContent = val;
+}
+
+function stripHtml(html) {
+  return html.replace(/<[^>]+>/g, "").replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&hellip;/g,"…").replace(/&#8217;/g,"’").replace(/&#8216;/g,"’").trim();
+}
+
+function readingTime(html) {
+  var words = stripHtml(html).split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / 220));
+}
+
+function formatDate(iso) {
+  var d = new Date(iso);
+  return d.toLocaleDateString("it-IT", {day:"numeric", month:"long", year:"numeric"});
+}
+
+function updateShare() {
   var url = encodeURIComponent(window.location.href);
   var txt = encodeURIComponent(document.title);
-  var li = document.getElementById('share-linkedin');
-  if (li) li.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + url;
-  var x = document.getElementById('share-x');
-  if (x) x.href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + txt;
-  var copy = document.getElementById('share-copy');
-  if (copy) copy.addEventListener('click', function(e){
+  var li = document.getElementById("share-linkedin");
+  if (li) li.href = "https://www.linkedin.com/sharing/share-offsite/?url=" + url;
+  var x = document.getElementById("share-x");
+  if (x) x.href = "https://twitter.com/intent/tweet?url=" + url + "&text=" + txt;
+  var copy = document.getElementById("share-copy");
+  if (copy) copy.addEventListener("click", function(e){
     e.preventDefault();
-    var done = function(){ var o = copy.textContent; copy.textContent = 'Copiato ✓'; setTimeout(function(){ copy.textContent = o; }, 1600); };
+    var done = function(){ var o = copy.textContent; copy.textContent = "Copiato ✓"; setTimeout(function(){ copy.textContent = o; }, 1600); };
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(window.location.href).then(done).catch(done);
     } else { done(); }
   });
+}
+
+async function loadRelated(catId, excludeId) {
+  try {
+    var res = await fetch(WP_API + "/posts?categories=" + catId + "&exclude=" + excludeId + "&per_page=3&_embed=1&_fields=id,title,slug,excerpt,date,_embedded");
+    if (!res.ok) return;
+    var posts = await res.json();
+    if (!posts.length) return;
+    var grid = document.querySelector(".related-grid");
+    if (!grid) return;
+    grid.innerHTML = posts.map(function(p) {
+      var cat = (p._embedded && p._embedded["wp:term"] && p._embedded["wp:term"][0] && p._embedded["wp:term"][0][0])
+        ? p._embedded["wp:term"][0][0].name : "Article";
+      var excerpt = stripHtml(p.excerpt.rendered).substring(0, 90) + "…";
+      return ‘<a class="related-card" href="articolo.html?from=’ + p.slug + ‘">’
+        + ‘<span class="tag">’ + cat + ‘</span>’
+        + ‘<h3>’ + p.title.rendered + ‘</h3>’
+        + ‘<div class="meta">’ + excerpt + ‘</div>’
+        + ‘</a>’;
+    }).join("");
+  } catch(e) {}
+}
+
+(async function(){
+  updateShare();
+
+  var params = new URLSearchParams(window.location.search);
+  var rawSlug = params.get("from") || params.get("slug");
+  if (!rawSlug) return;
+
+  var slug = SLUG_MAP[rawSlug] || rawSlug;
+
+  // Mostra skeleton
+  var banner = document.getElementById("placeholder-banner");
+  var skel = document.getElementById("loading-skel");
+  if (banner) banner.style.display = "none";
+  if (skel) skel.style.display = "block";
+
+  try {
+    var res = await fetch(WP_API + "/posts?slug=" + encodeURIComponent(slug) + "&_embed=1");
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    var posts = await res.json();
+    if (!posts.length) throw new Error("Post not found: " + slug);
+    var post = posts[0];
+
+    // Header
+    var title = post.title.rendered;
+    set("article-title", title, true);
+    document.title = stripHtml(title) + " — Samantha Fund";
+
+    var excerpt = stripHtml(post.excerpt.rendered).replace(/\[…\]/g,"").trim();
+    set("article-lead", excerpt);
+    set("article-date", formatDate(post.date));
+    set("article-read", readingTime(post.content.rendered) + " min");
+
+    // Categoria
+    var catName = "Article", catId = null;
+    if (post._embedded && post._embedded["wp:term"] && post._embedded["wp:term"][0] && post._embedded["wp:term"][0][0]) {
+      catName = post._embedded["wp:term"][0][0].name;
+      catId   = post._embedded["wp:term"][0][0].id;
+    }
+    set("article-tag", catName);
+    set("article-cat", catName);
+
+    // Body: sostituisce skeleton con contenuto reale
+    if (skel) skel.remove();
+    var bodyInner = document.getElementById("article-body-inner");
+    if (bodyInner) {
+      var contentDiv = document.createElement("div");
+      contentDiv.className = "wp-content";
+      contentDiv.innerHTML = post.content.rendered;
+      bodyInner.appendChild(contentDiv);
+    }
+
+    // Related posts
+    if (catId) loadRelated(catId, post.id);
+
+  } catch(err) {
+    if (skel) skel.style.display = "none";
+    if (banner) {
+      banner.style.display = "block";
+      banner.innerHTML = "<strong>Articolo non trovato.</strong> Lo slug \"" + rawSlug + "\" non corrisponde a nessun articolo pubblicato. Torna alla <a href=\"index.html\">home</a>.";
+    }
+    console.error("Article load error:", err);
+  }
 })();
 </script>
 
