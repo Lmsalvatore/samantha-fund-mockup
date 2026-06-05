@@ -4,297 +4,140 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Consulting — Samantha.Fund</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta name="description" content="Technology and strategy consulting for startups and corporates navigating the AI transition. Samantha.Fund.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230A2540'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%2300D4FF'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0A2540;
+  --ink-2:#1A2C44;
+  --cyan:#00D4FF;
+  --cyan-soft:#E6FAFF;
+  --bg:#FFFFFF;
+  --bg-2:#F7F9FC;
+  --line:#E6EAF0;
+  --text:#1A1A1A;
+  --muted:#5A6473;
+  --radius:14px;
+  --shadow:0 1px 2px rgba(10,37,64,.04), 0 8px 24px rgba(10,37,64,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--text);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:1180px;margin:0 auto;padding:0 28px}
 
-    :root {
-      --ink: #0A2540;
-      --cyan: #00D4FF;
-      --cyan-dim: rgba(0, 212, 255, 0.10);
-      --cyan-mid: rgba(0, 212, 255, 0.20);
-      --muted: #5a7a96;
-      --border: rgba(10, 37, 64, 0.12);
-      --font: 'Space Grotesk', sans-serif;
-    }
+/* Disclaimer */
+.legal-bar{background:var(--ink);color:#cfe7ff;font-size:12.5px;padding:10px 0;text-align:center;letter-spacing:.2px}
+.legal-bar strong{color:#fff;font-weight:600}
 
-    body {
-      font-family: var(--font);
-      background: #fff;
-      color: var(--ink);
-      font-size: 15px;
-      line-height: 1.6;
-    }
+/* Nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.01em}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--ink),var(--cyan))}
+.brand .name{font-size:18px;color:var(--ink)}
+.brand .name span{color:var(--cyan);font-weight:600}
+.menu{display:flex;gap:6px;align-items:center}
+.menu a{padding:9px 14px;border-radius:10px;font-size:14.5px;color:var(--muted);font-weight:500;transition:.15s ease}
+.menu a:hover{background:var(--bg-2);color:var(--ink)}
+.menu a.active{color:var(--ink);font-weight:600}
+.menu .cta{background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px}
+.menu .cta:hover{background:#08182b}
+.menu-toggle{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:42px;height:42px;font-size:20px;line-height:1;color:var(--ink);cursor:pointer;align-items:center;justify-content:center}
 
-    /* ── DISCLAIMER BAR ── */
-    .disclaimer-bar {
-      background: var(--ink);
-      color: rgba(255,255,255,0.6);
-      font-size: 11px;
-      text-align: center;
-      padding: 8px 24px;
-    }
-    .disclaimer-bar strong { color: var(--cyan); }
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:88px 0 80px;background:radial-gradient(1200px 500px at 85% -10%,rgba(0,212,255,.15),transparent 60%),radial-gradient(800px 400px at 10% 0%,rgba(10,37,64,.06),transparent 60%),linear-gradient(180deg,#fff,var(--bg-2))}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'Space Grotesk',sans-serif;font-weight:500;color:var(--ink);background:var(--cyan-soft);padding:6px 12px;border-radius:999px;font-size:13px;border:1px solid #cdeefa;margin-bottom:20px}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(36px,5vw,62px);line-height:1.06;letter-spacing:-.025em;color:var(--ink);font-weight:700;margin-bottom:18px;max-width:16ch}
+.hero h1 em{font-style:normal;background:linear-gradient(120deg,var(--ink) 30%,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{font-size:18px;color:var(--muted);max-width:56ch;margin-bottom:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;transition:.18s ease;border:none}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:var(--ink-2)}
 
-    /* ── NAV ── */
-    .nav {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(255,255,255,.85);
-      backdrop-filter: saturate(180%) blur(10px);
-      -webkit-backdrop-filter: saturate(180%) blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; padding: 0 64px; }
-    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.01em; text-decoration: none; }
-    .nav-brand .dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--ink), var(--cyan)); }
-    .nav-brand .name { font-size: 18px; color: var(--ink); }
-    .nav-brand .name span { color: var(--cyan); font-weight: 600; }
-    .nav-menu { display: flex; gap: 6px; align-items: center; }
-    .nav-menu a { padding: 9px 14px; border-radius: 10px; font-size: 14.5px; color: var(--muted); font-weight: 500; text-decoration: none; transition: .15s ease; }
-    .nav-menu a:hover { background: var(--cyan-dim); color: var(--ink); }
-    .nav-menu a.active { color: var(--ink); font-weight: 600; }
-    .nav-menu .cta { background: var(--ink); color: #fff !important; padding: 10px 16px; border-radius: 10px; }
-    .nav-menu .cta:hover { background: #08182b; }
-    .menu-toggle { display: none; background: none; border: 1px solid var(--border); border-radius: 10px; width: 42px; height: 42px; font-size: 20px; line-height: 1; color: var(--ink); cursor: pointer; align-items: center; justify-content: center; }
+/* Sections */
+section{padding:80px 0}
+section.alt{background:var(--bg-2)}
+.section-head{margin-bottom:40px}
+.section-head h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,3.5vw,38px);font-weight:700;letter-spacing:-.02em;color:var(--ink);margin-bottom:10px}
+.section-head p{font-size:16px;color:var(--muted);max-width:58ch}
+.section-tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:12px}
 
-    /* ── HERO ── */
-    .hero {
-      background: var(--ink);
-      color: #fff;
-      padding: 72px 64px 64px;
-    }
-    .hero-label {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--cyan);
-      margin-bottom: 20px;
-    }
-    .hero h1 {
-      font-size: 44px;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      max-width: 640px;
-      margin-bottom: 20px;
-    }
-    .hero h1 em {
-      font-style: normal;
-      color: var(--cyan);
-    }
-    .hero p {
-      font-size: 16px;
-      color: rgba(255,255,255,0.65);
-      max-width: 560px;
-      line-height: 1.65;
-    }
+/* Audience cards */
+.audiences{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.aud-card{background:var(--bg);border:1.5px solid var(--line);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow)}
+.aud-card.featured{border-color:var(--cyan);background:var(--cyan-soft)}
+.aud-tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);background:var(--ink);color:#fff;padding:4px 10px;border-radius:6px;margin-bottom:14px}
+.aud-card.featured .aud-tag{background:var(--cyan);color:var(--ink)}
+.aud-card h3{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.2}
+.aud-card p{font-size:14.5px;color:var(--muted);line-height:1.65}
 
-    /* ── MAIN ── */
-    main { max-width: 1100px; margin: 0 auto; padding: 64px 64px; }
+/* Service cards */
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.svc-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:24px 20px;box-shadow:var(--shadow);transition:.15s ease}
+.svc-card:hover{border-color:var(--cyan);transform:translateY(-2px)}
+.svc-card .ico{font-size:24px;margin-bottom:12px}
+.svc-card h4{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.svc-card p{font-size:13px;color:var(--muted);line-height:1.55}
 
-    /* ── AUDIENCES ── */
-    .audiences {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-bottom: 64px;
-    }
-    .audience-card {
-      border: 1.5px solid var(--border);
-      border-radius: 12px;
-      padding: 32px;
-    }
-    .audience-card.highlighted {
-      border-color: var(--cyan);
-      background: var(--cyan-dim);
-    }
-    .audience-tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--cyan);
-      background: var(--ink);
-      padding: 4px 10px;
-      border-radius: 4px;
-      margin-bottom: 16px;
-    }
-    .audience-card h3 {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      line-height: 1.2;
-    }
-    .audience-card p {
-      font-size: 14px;
-      color: #3a5a74;
-      line-height: 1.65;
-    }
+/* Tech band */
+.tech-band{background:var(--ink);border-radius:20px;padding:44px 48px;margin:0 0 80px}
+.tech-band .section-tag{color:var(--cyan)}
+.tech-band h2{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:24px}
+.pills{display:flex;flex-wrap:wrap;gap:10px}
+.pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:13px;font-weight:500;padding:8px 16px;border-radius:999px}
+.pill.hi{background:var(--cyan);color:var(--ink);border-color:var(--cyan);font-weight:700}
 
-    /* ── SERVICES ── */
-    .services-section { margin-bottom: 64px; }
-    .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: 24px;
-    }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-    .service-card {
-      background: #f7f9fb;
-      border-radius: 10px;
-      padding: 24px 20px;
-    }
-    .service-card .icon {
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
-    .service-card h4 {
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: var(--ink);
-    }
-    .service-card p {
-      font-size: 12.5px;
-      color: var(--muted);
-      line-height: 1.55;
-    }
+/* CTA band */
+.cta-band{background:var(--bg-2);border:1px solid var(--line);border-radius:20px;padding:48px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;margin:0 0 80px}
+.cta-band h2{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.cta-band p{font-size:15px;color:var(--muted)}
 
-    /* ── TECH FOCUS ── */
-    .tech-section {
-      background: var(--ink);
-      border-radius: 16px;
-      padding: 40px;
-      margin-bottom: 64px;
-      color: #fff;
-    }
-    .tech-section .section-label { color: var(--cyan); }
-    .tech-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 4px;
-    }
-    .tech-pill {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 999px;
-    }
-    .tech-pill.active {
-      background: var(--cyan);
-      color: var(--ink);
-      border-color: var(--cyan);
-      font-weight: 700;
-    }
+/* Footer */
+footer{padding:56px 0 32px;border-top:1px solid var(--line);background:var(--bg-2)}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.foot-grid h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:12px}
+.foot-grid a{display:block;font-size:14px;color:var(--muted);margin-bottom:8px}
+.foot-grid a:hover{color:var(--ink)}
+.foot-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;margin-bottom:10px}
+.foot-brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--ink),var(--cyan))}
+.foot-brand .name{color:var(--ink)}
+.foot-brand .name span{color:var(--cyan)}
+.foot-desc{font-size:13px;color:var(--muted);line-height:1.65;max-width:260px}
+.foot-bottom{border-top:1px solid var(--line);padding-top:20px;font-size:12px;color:var(--muted);line-height:1.7}
 
-    /* ── CTA ── */
-    .cta-strip {
-      background: var(--cyan-dim);
-      border-radius: 12px;
-      padding: 36px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 48px;
-    }
-    .cta-strip div h3 {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .cta-strip div p {
-      font-size: 14px;
-      color: #3a5a74;
-    }
-    .cta-strip a {
-      display: inline-block;
-      background: var(--ink);
-      color: #fff;
-      font-family: var(--font);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 14px 32px;
-      border-radius: 8px;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    /* ── FOOTER DISCLAIMER ── */
-    .footer-disclaimer {
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      font-size: 11px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    /* ── FOOTER ── */
-    .site-footer { padding: 48px 0 32px; border-top: 1px solid var(--border); background: #f7f9fb; margin-top: 64px; }
-    .foot-inner { max-width: 1100px; margin: 0 auto; padding: 0 64px; }
-    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 36px; }
-    .foot-grid h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 12px; }
-    .foot-grid a { display: block; font-size: 14px; color: var(--muted); text-decoration: none; margin-bottom: 8px; }
-    .foot-grid a:hover { color: var(--ink); }
-    .foot-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; text-decoration: none; margin-bottom: 10px; }
-    .foot-brand .dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--ink), var(--cyan)); }
-    .foot-brand .name { color: var(--ink); }
-    .foot-brand .name span { color: var(--cyan); }
-    .foot-desc { font-size: 13px; color: var(--muted); line-height: 1.6; max-width: 260px; }
-    .foot-copy { font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 20px; }
-
-    @media (max-width: 900px) {
-      .nav-inner { padding: 0 24px; }
-      .menu-toggle { display: inline-flex; }
-      .nav-menu {
-        position: absolute; top: 68px; left: 0; right: 0;
-        flex-direction: column; align-items: stretch; gap: 0;
-        background: rgba(255,255,255,.98); backdrop-filter: saturate(180%) blur(10px);
-        border-bottom: 1px solid var(--border); padding: 8px 20px 16px;
-        box-shadow: 0 8px 32px rgba(10,37,64,.12); display: none;
-      }
-      .nav-menu.open { display: flex; }
-      .nav-menu a { padding: 12px 14px; }
-      .nav-menu .cta { text-align: center; margin-top: 6px; }
-      .hero { padding: 48px 24px 40px; }
-      .hero h1 { font-size: 30px; }
-      main { padding: 40px 24px; }
-      .audiences { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: 1fr 1fr; }
-      .cta-strip { flex-direction: column; align-items: flex-start; }
-      .foot-inner { padding: 0 24px; }
-      .foot-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 600px) {
-      .services-grid { grid-template-columns: 1fr; }
-      .foot-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+@media(max-width:900px){
+  .menu-toggle{display:inline-flex}
+  .menu{position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:rgba(255,255,255,.98);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:8px 20px 16px;box-shadow:var(--shadow);display:none}
+  .menu.open{display:flex}
+  .menu a{padding:12px 14px;border-radius:10px}
+  .menu .cta{text-align:center;margin-top:6px}
+  .audiences{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .tech-band{padding:32px 24px;margin:0 0 56px}
+  .cta-band{grid-template-columns:1fr;padding:32px 24px;margin:0 0 56px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .services-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 
-<div class="disclaimer-bar">
-  <strong>Note:</strong> Samantha.Fund provides technology &amp; strategy advisory only. This is not financial or investment advice.
+<div class="legal-bar">
+  <strong>Note:</strong> Samantha.Fund provides technology &amp; strategy advisory only — not financial or investment advice.
 </div>
 
 <nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-brand"><span class="dot"></span><span class="name">Samantha<span>.Fund</span></span></a>
+  <div class="container nav-inner">
+    <a href="index.html" class="brand"><span class="dot"></span><span class="name">Samantha<span>.Fund</span></span></a>
     <button class="menu-toggle" aria-label="Apri menu" aria-expanded="false" aria-controls="consulting-menu" onclick="var m=document.getElementById('consulting-menu');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Chiudi menu':'Apri menu');this.innerHTML=o?'&#10005;':'&#9776;'">&#9776;</button>
-    <div class="nav-menu" id="consulting-menu">
+    <div class="menu" id="consulting-menu">
       <a href="index.html#blog">Blog</a>
       <a href="index.html#tech">AI &amp; Tech</a>
       <a href="thesis.html">Thesis</a>
@@ -305,114 +148,135 @@
   </div>
 </nav>
 
-<div class="hero">
-  <div class="hero-label">Advisory Services</div>
-  <h1>Technology &amp; Strategy<br><em>Consulting</em></h1>
-  <p>We work with startups, scale-ups and established organisations navigating the AI transition, digital transformation, and the emerging tokenised economy.</p>
-</div>
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Advisory Services</div>
+    <h1>Technology &amp; Strategy <em>Consulting</em></h1>
+    <p class="lead">We work with startups, scale-ups and established organisations navigating the AI transition, digital transformation, and the emerging tokenised economy.</p>
+    <a href="mailto:luca@samantha.fund" class="btn btn-primary">Get in touch →</a>
+  </div>
+</section>
 
-<main>
-
-  <!-- WHO WE WORK WITH -->
-  <div class="audiences">
-    <div class="audience-card highlighted">
-      <div class="audience-tag">Startups &amp; Scale-ups</div>
-      <h3>Build faster. Position smarter.</h3>
-      <p>Early-stage founders building in AI, Web3, biotech or cleantech who need hands-on strategic support: from go-to-market and positioning, to governance, fundraising readiness, and operational build-out.</p>
+<!-- Who we work with -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">Who we work with</div>
+      <h2>Two tracks, one focus: technology.</h2>
+      <p>Whether you're building from zero or transforming an established business, we adapt to where you are.</p>
     </div>
-    <div class="audience-card">
-      <div class="audience-tag">Corporates &amp; Institutions</div>
-      <h3>Navigate the AI &amp; tech transition.</h3>
-      <p>Established organisations — across manufacturing, fashion, food, pharma, and finance — looking to understand and act on emerging technologies: AI adoption, tokenisation of assets, digital product strategy, and regulatory compliance (EU AI Act, DORA, NIS2).</p>
+    <div class="audiences">
+      <div class="aud-card featured">
+        <div class="aud-tag">Startups &amp; Scale-ups</div>
+        <h3>Build faster. Position smarter.</h3>
+        <p>Early-stage founders building in AI, Web3, biotech or cleantech who need hands-on strategic support: from go-to-market and positioning, to governance, fundraising readiness, and operational build-out.</p>
+      </div>
+      <div class="aud-card">
+        <div class="aud-tag">Corporates &amp; Institutions</div>
+        <h3>Navigate the AI &amp; tech transition.</h3>
+        <p>Established organisations — across manufacturing, fashion, food, pharma, and finance — looking to understand and act on emerging technologies: AI adoption, tokenisation, digital product strategy, and regulatory compliance (EU AI Act, DORA, NIS2).</p>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- SERVICES -->
-  <div class="services-section">
-    <div class="section-label">What We Do</div>
+<!-- Services -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">What we do</div>
+      <h2>Eight areas of expertise.</h2>
+      <p>Hands-on advisory across the full business lifecycle — from strategy to execution.</p>
+    </div>
     <div class="services-grid">
-      <div class="service-card">
-        <div class="icon">🧭</div>
+      <div class="svc-card">
+        <div class="ico">🧭</div>
         <h4>Strategy</h4>
         <p>Competitive positioning, go-to-market design, product-market fit, and long-range vision.</p>
       </div>
-      <div class="service-card">
-        <div class="icon">📊</div>
+      <div class="svc-card">
+        <div class="ico">📊</div>
         <h4>Financial Modelling</h4>
-        <p>Business model design, unit economics, scenario planning. Not investment advice — operational finance only.</p>
+        <p>Business model design, unit economics, scenario planning. Operational finance only — not investment advice.</p>
       </div>
-      <div class="service-card">
-        <div class="icon">📣</div>
+      <div class="svc-card">
+        <div class="ico">📣</div>
         <h4>Branding &amp; Marketing</h4>
         <p>Brand identity, narrative, content strategy, and digital presence for tech-first companies.</p>
       </div>
-      <div class="service-card">
-        <div class="icon">🏛️</div>
+      <div class="svc-card">
+        <div class="ico">🏛️</div>
         <h4>Governance</h4>
-        <p>Cap table structure, board composition, corporate governance, and regulatory readiness (EU AI Act, GDPR, DORA).</p>
+        <p>Corporate governance, regulatory readiness (EU AI Act, GDPR, DORA), and board composition.</p>
       </div>
-      <div class="service-card">
-        <div class="icon">🔍</div>
+      <div class="svc-card">
+        <div class="ico">🔍</div>
         <h4>Due Diligence Support</h4>
-        <p>Technology, team, and market diligence for companies preparing for partnerships or strategic transactions.</p>
+        <p>Technology, team, and market diligence for companies preparing for partnerships or transactions.</p>
       </div>
-      <div class="service-card">
-        <div class="icon">👥</div>
+      <div class="svc-card">
+        <div class="ico">👥</div>
         <h4>HR &amp; Talent</h4>
-        <p>Org design, founding team assessment, key hire profiling, and leadership coaching for scale-up phase.</p>
+        <p>Org design, founding team assessment, key hire profiling, and leadership coaching.</p>
       </div>
-      <div class="service-card">
-        <div class="icon">🌐</div>
+      <div class="svc-card">
+        <div class="ico">🌐</div>
         <h4>Network &amp; Introductions</h4>
-        <p>Access to a curated network across Italian and European tech ecosystems, corporate partners, and advisors.</p>
+        <p>Curated network across Italian and European tech ecosystems, corporate partners, and advisors.</p>
       </div>
-      <div class="service-card">
-        <div class="icon">🚀</div>
+      <div class="svc-card">
+        <div class="ico">🚀</div>
         <h4>Business Development</h4>
         <p>Partner identification, channel strategy, and commercial deal support across Made in Italy verticals.</p>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- TECH FOCUS -->
-  <div class="tech-section">
-    <div class="section-label">Technology Focus Areas — 2026</div>
-    <div class="tech-pills">
-      <span class="tech-pill active">Generative AI &amp; Agents</span>
-      <span class="tech-pill active">Tokenisation &amp; RWA</span>
-      <span class="tech-pill active">Longevity &amp; Digital Health</span>
-      <span class="tech-pill active">Cleantech &amp; Energy Transition</span>
-      <span class="tech-pill">Cyber Security</span>
-      <span class="tech-pill">EU AI Act Compliance</span>
-      <span class="tech-pill">AI × Fashion &amp; Luxury</span>
-      <span class="tech-pill">AI × Food &amp; Agritech</span>
-      <span class="tech-pill">Advanced Manufacturing</span>
-      <span class="tech-pill">Web3 Infrastructure</span>
+<!-- Tech focus -->
+<section class="alt">
+  <div class="container">
+    <div class="tech-band">
+      <div class="section-tag">Technology Focus — 2026</div>
+      <h2>Where we operate.</h2>
+      <div class="pills">
+        <span class="pill hi">Generative AI &amp; Agents</span>
+        <span class="pill hi">Tokenisation &amp; RWA</span>
+        <span class="pill hi">Longevity &amp; Digital Health</span>
+        <span class="pill hi">Cleantech &amp; Energy Transition</span>
+        <span class="pill">Cyber Security</span>
+        <span class="pill">EU AI Act Compliance</span>
+        <span class="pill">AI × Fashion &amp; Luxury</span>
+        <span class="pill">AI × Food &amp; Agritech</span>
+        <span class="pill">Advanced Manufacturing</span>
+        <span class="pill">Web3 Infrastructure</span>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- CTA -->
-  <div class="cta-strip">
-    <div>
-      <h3>Let's work together.</h3>
-      <p>Tell us about your company and what you're building — we'll get back within 48 hours.</p>
+<!-- CTA -->
+<section>
+  <div class="container">
+    <div class="cta-band">
+      <div>
+        <h2>Let's work together.</h2>
+        <p>Tell us about your company and what you're building — we'll get back within 48 hours.</p>
+      </div>
+      <a href="mailto:luca@samantha.fund" class="btn btn-primary">luca@samantha.fund →</a>
     </div>
-    <a href="mailto:luca@samantha.fund">luca@samantha.fund</a>
+    <p style="font-size:12px;color:var(--muted);padding-top:16px;border-top:1px solid var(--line)"><strong>Disclaimer:</strong> Samantha.Fund provides technology and business strategy consulting only. Nothing here constitutes financial advice, investment advice, or any regulated financial service.</p>
   </div>
+</section>
 
-  <!-- FOOTER DISCLAIMER -->
-  <div class="footer-disclaimer">
-    <strong>Disclaimer:</strong> Samantha.Fund provides technology and business strategy consulting services only. Nothing on this page constitutes financial advice, investment advice, or any form of regulated financial service. Samantha.Fund is not a licensed investment advisor, fund manager, or financial intermediary. All engagements are advisory in nature.
-  </div>
-
-</main>
-
-<footer class="site-footer">
-  <div class="foot-inner">
+<!-- Footer -->
+<footer>
+  <div class="container">
     <div class="foot-grid">
       <div>
         <a href="index.html" class="foot-brand"><span class="dot"></span><span class="name">Samantha<span>.Fund</span></span></a>
-        <p class="foot-desc">Progetto editoriale su tecnologia, AI e innovazione. Curato da Samantha.</p>
+        <p class="foot-desc">Progetto editoriale indipendente su tecnologia, AI e innovazione. Curato da Samantha.</p>
       </div>
       <div>
         <h4>Esplora</h4>
@@ -435,7 +299,7 @@
         <a href="note-legali.html">Note legali</a>
       </div>
     </div>
-    <div class="foot-copy">
+    <div class="foot-bottom">
       <strong>Disclaimer.</strong> Samantha Fund è un progetto editoriale e divulgativo. <strong>Non costituisce un fondo di investimento regolamentato</strong>, non offre servizi di consulenza finanziaria, non sollecita la raccolta di capitali.
     </div>
   </div>
