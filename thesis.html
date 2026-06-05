@@ -36,28 +36,58 @@
     }
     .disclaimer-bar strong { color: var(--cyan); }
 
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,.85);
+      backdrop-filter: saturate(180%) blur(10px);
+      -webkit-backdrop-filter: saturate(180%) blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; padding: 0 64px; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.01em; text-decoration: none; }
+    .nav-brand .dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--ink), var(--cyan)); }
+    .nav-brand .name { font-size: 18px; color: var(--ink); }
+    .nav-brand .name span { color: var(--cyan); font-weight: 600; }
+    .nav-menu { display: flex; gap: 6px; align-items: center; }
+    .nav-menu a { padding: 9px 14px; border-radius: 10px; font-size: 14.5px; color: var(--muted); font-weight: 500; text-decoration: none; transition: .15s ease; }
+    .nav-menu a:hover { background: var(--cyan-dim); color: var(--ink); }
+    .nav-menu a.active { color: var(--ink); font-weight: 600; }
+    .nav-menu .cta { background: var(--ink); color: #fff !important; padding: 10px 16px; border-radius: 10px; }
+    .nav-menu .cta:hover { background: #08182b; }
+    .menu-toggle { display: none; background: none; border: 1px solid var(--border); border-radius: 10px; width: 42px; height: 42px; font-size: 20px; line-height: 1; color: var(--ink); cursor: pointer; align-items: center; justify-content: center; }
+
     /* ── HEADER ── */
     header {
       background: var(--ink);
       color: #fff;
-      padding: 48px 64px 40px;
+      padding: 64px 64px 56px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       gap: 24px;
     }
-    .brand {
-      font-size: 32px;
+    .header-left {}
+    .header-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--cyan);
+      margin-bottom: 16px;
+    }
+    .header-title {
+      font-size: 40px;
       font-weight: 700;
       letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
     }
-    .brand span { color: var(--cyan); }
     .tagline {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 400;
       color: rgba(255,255,255,0.6);
-      margin-top: 6px;
-      max-width: 420px;
+      max-width: 500px;
     }
     .contact-header {
       text-align: right;
@@ -261,12 +291,44 @@
       .cta-strip a { border: 1.5px solid var(--ink); color: var(--ink); background: transparent; }
     }
 
-    @media (max-width: 768px) {
-      header { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+    /* ── FOOTER ── */
+    .site-footer { padding: 48px 0 32px; border-top: 1px solid var(--border); background: #f7f9fb; margin-top: 64px; }
+    .foot-inner { max-width: 1100px; margin: 0 auto; padding: 0 64px; }
+    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 36px; }
+    .foot-grid h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 12px; }
+    .foot-grid a { display: block; font-size: 14px; color: var(--muted); text-decoration: none; margin-bottom: 8px; }
+    .foot-grid a:hover { color: var(--ink); }
+    .foot-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; text-decoration: none; margin-bottom: 10px; }
+    .foot-brand .dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--ink), var(--cyan)); }
+    .foot-brand .name { color: var(--ink); }
+    .foot-brand .name span { color: var(--cyan); }
+    .foot-desc { font-size: 13px; color: var(--muted); line-height: 1.6; max-width: 260px; }
+    .foot-copy { font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 20px; }
+
+    @media (max-width: 900px) {
+      .nav-inner { padding: 0 24px; }
+      .menu-toggle { display: inline-flex; }
+      .nav-menu {
+        position: absolute; top: 68px; left: 0; right: 0;
+        flex-direction: column; align-items: stretch; gap: 0;
+        background: rgba(255,255,255,.98); backdrop-filter: saturate(180%) blur(10px);
+        border-bottom: 1px solid var(--border); padding: 8px 20px 16px;
+        box-shadow: 0 8px 32px rgba(10,37,64,.12); display: none;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu a { padding: 12px 14px; }
+      .nav-menu .cta { text-align: center; margin-top: 6px; }
+      header { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
       main { padding: 36px 24px; }
       .intro { grid-template-columns: 1fr; }
       .tech-grid, .market-grid { grid-template-columns: repeat(3, 1fr); }
       .cta-strip { flex-direction: column; align-items: flex-start; }
+      .foot-inner { padding: 0 24px; }
+      .foot-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .tech-grid, .market-grid { grid-template-columns: repeat(2, 1fr); }
+      .foot-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -276,10 +338,26 @@
   <strong>Important:</strong> This document is for informational purposes only. Samantha.Fund is not a regulated investment fund and does not offer or solicit investment in any financial instrument.
 </div>
 
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><span class="dot"></span><span class="name">Samantha<span>.Fund</span></span></a>
+    <button class="menu-toggle" aria-label="Apri menu" aria-expanded="false" aria-controls="thesis-menu" onclick="var m=document.getElementById('thesis-menu');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Chiudi menu':'Apri menu');this.innerHTML=o?'&#10005;':'&#9776;'">&#9776;</button>
+    <div class="nav-menu" id="thesis-menu">
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#tech">AI &amp; Tech</a>
+      <a href="thesis.html" class="active">Thesis</a>
+      <a href="consulting.html">Consulting</a>
+      <a href="index.html#podcast">Podcast</a>
+      <a href="contatti.html" class="cta">Contatti</a>
+    </div>
+  </div>
+</nav>
+
 <header>
-  <div>
-    <div class="brand">Samantha<span>.</span>Fund</div>
-    <div class="tagline">Technology Thesis 2026 — AI, Tokenisation &amp; Deep Tech for Made in Italy</div>
+  <div class="header-left">
+    <div class="header-label">Technology Thesis 2026</div>
+    <div class="header-title">Samantha<span style="color:var(--cyan)">.</span>Fund</div>
+    <div class="tagline">AI, Tokenisation &amp; Deep Tech for Made in Italy</div>
   </div>
   <div class="contact-header">
     Luca Salvatore
@@ -377,6 +455,40 @@
   </div>
 
 </main>
+
+<footer class="site-footer">
+  <div class="foot-inner">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="foot-brand"><span class="dot"></span><span class="name">Samantha<span>.Fund</span></span></a>
+        <p class="foot-desc">Progetto editoriale su tecnologia, AI e innovazione. Curato da Samantha.</p>
+      </div>
+      <div>
+        <h4>Esplora</h4>
+        <a href="index.html#blog">Blog</a>
+        <a href="index.html#tech">AI &amp; Tech</a>
+        <a href="index.html#podcast">Podcast</a>
+        <a href="index.html#shop">Shop</a>
+      </div>
+      <div>
+        <h4>About</h4>
+        <a href="thesis.html">Thesis</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="contatti.html">Contatti</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="cookie.html">Cookie Policy</a>
+        <a href="note-legali.html">Note legali</a>
+      </div>
+    </div>
+    <div class="foot-copy">
+      <strong>Disclaimer.</strong> Samantha Fund è un progetto editoriale e divulgativo. <strong>Non costituisce un fondo di investimento regolamentato</strong>, non offre servizi di consulenza finanziaria, non sollecita la raccolta di capitali. I contenuti hanno finalità informativa e non rappresentano raccomandazioni di investimento.
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
