@@ -244,36 +244,186 @@ footer{padding:48px 0 32px;border-top:1px solid var(--line);background:var(--bg-
 </footer>
 
 <script>
-// Mappa backward-compat: slug corti usati nelle card → slug WP reali
-var SLUG_MAP = {
-  "ai":           "ai-economic-disruption-human-value",
-  "tokenisation": "tokenisation-the-next-financial-frontier",
-  "flowchart":    "from-flowchart-to-app-the-future-of-work",
-  "wavecity":     "wavecity-rome-the-story-behind-the-professional-wave-pool-business-plan",
-  "kunst":        "die-kunst-del-fugae",
-  "tech":         "future-of-consulting-adapting-to-ai-challenges"
+// Database articoli inline — nessuna dipendenza da API esterne.
+var ARTICLES = {
+  "ai": {
+    title: "AI and the future of human value",
+    tag: "AI",
+    cat: "AI &amp; Tech",
+    lead: "Una riflessione su cosa significa essere utili nell'epoca degli agenti autonomi — non più cosa sai fare, ma cosa scegli di fare.",
+    date: "14 marzo 2026",
+    read: "5 min · EN",
+    body: `
+      <h2>The question nobody is asking</h2>
+      <p>For decades, the dominant anxiety about automation was "will machines take our jobs?" It was the wrong question. The right question is: <strong>when machines can do almost everything, what makes a human contribution valuable?</strong></p>
+      <p>The answer is not about skills, credentials, or even intelligence. It is about judgment, context, and the willingness to be accountable for a decision. Machines optimize; humans choose.</p>
+      <blockquote>"The value of a human being in an AI-saturated world is not computational. It is moral."</blockquote>
+      <h2>From capability to agency</h2>
+      <p>We are moving from an economy that rewards <em>what you can do</em> to one that rewards <em>what you decide to do</em>. A lawyer who uses AI to draft contracts is not less valuable — she is more valuable, because she can now focus entirely on the judgment calls that the AI cannot make: risk appetite, client relationship, ethical trade-offs.</p>
+      <p>The same shift is happening in medicine, architecture, finance, and education. The cognitive commodities are being automated. What remains — and what will be priced at a premium — is the human willingness to say "I am responsible for this."</p>
+      <h2>Three implications</h2>
+      <ul>
+        <li><strong>Accountability becomes scarce.</strong> In a world of AI-generated content, decisions, and recommendations, the person who signs their name matters more than ever.</li>
+        <li><strong>Curation beats creation.</strong> The ability to select, evaluate, and contextualize information from an infinite AI output stream is the new core skill.</li>
+        <li><strong>Trust is the moat.</strong> Organizations and individuals who build genuine trust — not follower counts, but real relationships — will capture disproportionate value.</li>
+      </ul>
+      <h2>What this means for you</h2>
+      <p>Stop optimizing your skill set for tasks that AI will do better than you by 2027. Start investing in the things that make you irreplaceable: your network, your judgment, your willingness to take positions and defend them.</p>
+      <p>The future belongs to people who can work <em>with</em> intelligence — artificial and human — to produce outcomes that matter. Not to people who can compete with it.</p>
+    `,
+    related: ["tokenisation","tech","flowchart"]
+  },
+  "tokenisation": {
+    title: "Tokenisation: the next financial frontier",
+    tag: "Finance",
+    cat: "Finance",
+    lead: "Real-world assets on-chain — da esperimento a infrastruttura. Perché il 2025 è stato l'anno in cui tutto è diventato serio.",
+    date: "28 febbraio 2026",
+    read: "7 min · EN",
+    body: `
+      <h2>From crypto winter to institutional spring</h2>
+      <p>While retail crypto narratives cycled through hype and collapse, something quieter was happening in the back offices of BlackRock, JPMorgan, and Franklin Templeton. They were building tokenization infrastructure. Slowly. Deliberately. At scale.</p>
+      <p>In 2024, tokenized real-world assets (RWAs) crossed $10 billion in on-chain value. By mid-2025, that number had tripled. The experiment was over. The infrastructure phase had begun.</p>
+      <h2>What tokenisation actually means</h2>
+      <p>Strip away the jargon: tokenisation means representing ownership of a real-world asset — a building, a bond, a private equity stake, a piece of art — as a digital token on a blockchain. The token can be transferred, divided, collateralized, and traded 24/7, globally, with settlement in seconds rather than days.</p>
+      <blockquote>"Tokenisation is not a product. It is a new layer of financial infrastructure — the TCP/IP of capital markets."</blockquote>
+      <p>The implications are profound. Assets that were illiquid become liquid. Assets that required $1M minimum tickets become accessible at $100. Geographic and regulatory barriers compress. Automated compliance and dividend distribution replace armies of back-office staff.</p>
+      <h2>The winners so far</h2>
+      <ul>
+        <li><strong>Tokenized US Treasuries</strong> — the first killer app, driven by high yields and DeFi yield-seeking. BUIDL, FOBXX, and competitors crossed $5B combined AUM by early 2025.</li>
+        <li><strong>Private credit</strong> — historically the most illiquid of asset classes, now being brought on-chain by platforms like Figure and Ondo.</li>
+        <li><strong>Real estate</strong> — commercial real estate fractionalization gaining traction in Singapore, UAE, and select European markets.</li>
+      </ul>
+      <h2>The open questions</h2>
+      <p>Tokenisation solves settlement and liquidity. It does not, on its own, solve custody risk, regulatory clarity, or the oracle problem (connecting on-chain tokens to off-chain legal ownership). These are solvable problems — they are being solved — but they are not solved yet.</p>
+      <p>The next 18 months will determine whether tokenisation becomes a niche tool for sophisticated investors or a genuine rewiring of how capital markets work. The signals are cautiously optimistic.</p>
+    `,
+    related: ["ai","flowchart","tech"]
+  },
+  "flowchart": {
+    title: "From Flowchart to App: The Future of Work",
+    tag: "Future of Work",
+    cat: "Future of Work",
+    lead: "Quando i diagrammi di flusso diventano software funzionante in pochi secondi, cos'è rimasto del mestiere di sviluppatore?",
+    date: "10 marzo 2026",
+    read: "6 min · EN",
+    body: `
+      <h2>The demo that changed everything</h2>
+      <p>In late 2025, a product manager at a mid-size logistics company drew a flowchart in a whiteboard app. Within 45 seconds, an AI had converted it into a working web application, complete with database schema, API endpoints, and a functional frontend. The PM deployed it to production without writing a single line of code.</p>
+      <p>This is not science fiction. It happened. And it is happening at scale.</p>
+      <h2>The stack is collapsing</h2>
+      <p>For twenty years, software development was a highly specialized craft requiring years of training to enter. The stack — HTML, CSS, JavaScript, SQL, cloud infrastructure, security, testing — was genuinely complex enough to justify a 5-year learning curve and a €90k salary.</p>
+      <p>That complexity is not disappearing. But the <em>human</em> requirement to manage it is. AI coding assistants are moving from autocomplete to full-system generation. The abstraction layer is rising.</p>
+      <blockquote>"The question is no longer whether AI can write code. The question is what happens to the 28 million software developers when it can write most of it."</blockquote>
+      <h2>Three new roles that matter</h2>
+      <p>The death of coding-as-craft does not mean the death of technology work. It means a shift:</p>
+      <ul>
+        <li><strong>The AI Architect</strong> — knows what systems should do and how to specify them precisely. Becomes more valuable as specification quality determines output quality.</li>
+        <li><strong>The Integration Specialist</strong> — AI-generated code is often correct in isolation and broken in composition. Humans who understand system dependencies remain essential.</li>
+        <li><strong>The Product Engineer</strong> — cares about users, not code. Uses AI as a rapid prototyping tool to test product hypotheses at 10x the previous speed.</li>
+      </ul>
+      <h2>The uncomfortable truth</h2>
+      <p>Many current software development jobs — writing boilerplate, building CRUD applications, implementing well-defined features against a spec — will be automated within 3-5 years. Not all. Not immediately. But directionally, clearly.</p>
+      <p>The developers who thrive will be those who invest in the meta-skill: understanding <em>what</em> to build and <em>why</em>, not just <em>how</em>. The future belongs to people who can give AI precise, meaningful instructions — and evaluate whether the output is actually good.</p>
+    `,
+    related: ["ai","tokenisation","tech"]
+  },
+  "wavecity": {
+    title: "WaveCity Rome: il business plan dietro al wave pool",
+    tag: "Business",
+    cat: "Business",
+    lead: "Il primo wave pool professionale in Italia a Roma. Come funziona il modello economico di un'infrastruttura da 60 milioni che produce onde artificiali.",
+    date: "5 marzo 2026",
+    read: "8 min · IT",
+    body: `
+      <h2>L'idea</h2>
+      <p>WaveCity Rome è un progetto di wave pool — una piscina di 200 metri per 80 che genera onde artificiali fino a 2,5 metri, controllabili al centimetro. Il concept è semplice: portare il surf professionale a 30 minuti dal centro di Roma, dove non c'è mare e il surf è impossibile.</p>
+      <p>Il modello non è nuovo: Kelly Slater Wave Company opera a Lemoore (California) dal 2015; URBNSURF a Melbourne è in utile dal 2022; BSR a Waco (Texas) è diventata una destinazione turistica mondiale. L'Europa è indietro, e l'Italia ancora di più.</p>
+      <h2>L'economia di un wave pool</h2>
+      <p>Il capex iniziale di un impianto professionale si aggira tra i 40 e i 90 milioni di euro, in funzione della tecnologia scelta (Wavegarden, KSWC, Surf Lakes) e delle infrastrutture a contorno. WaveCity Roma stima un investimento iniziale di 62 milioni, con un orizzonte di pareggio operativo a 7 anni.</p>
+      <p>I ricavi vengono da tre fonti principali:</p>
+      <ul>
+        <li><strong>Session booking</strong> — il core: 60-90 minuti di surf a onda programmata. Tariffe tra €80 e €220 a sessione, premium per le onde più grandi. Capacità: 80-120 surfer/giorno.</li>
+        <li><strong>Hospitality</strong> — hotel, ristorante, spa integrati nel campus. Margini più bassi ma ticketing indipendente dal meteo.</li>
+        <li><strong>Events &amp; competitions</strong> — competizioni WSL, camp estivi, corporate team building. Margini alti, ma stagionali.</li>
+      </ul>
+      <blockquote>"Il wave pool non vende onde. Vende l'esperienza di essere un pro surfer per un'ora."</blockquote>
+      <h2>I numeri</h2>
+      <p>A regime (anno 3+), il modello proiettato prevede 35.000 sessioni/anno, un tasso di occupazione media del 65%, e un ricavo lordo di circa 6,2 milioni solo dall'attività surfica. Con l'hospitality e gli eventi, il management team proietta un EBITDA del 28% su ricavi aggregati di circa 14 milioni.</p>
+      <h2>I rischi</h2>
+      <p>Il mercato italiano del surf è piccolo: circa 180.000 praticanti contro 4,5 milioni in Francia. Il ticketing premium è esposto a una domanda elastica. I costi energetici di un impianto che genera onde ogni 8 secondi sono significativi. E la reazione dell'urbanistica romana a un progetto da 200 metri in area periurbana è imprevedibile.</p>
+      <p>Il progetto è ambizioso. I numeri sono credibili a condizione che la location sia accessibile, il marketing funzioni, e l'Italia produca la base di utenti necessaria. Non è detto che succeda. Ma è possibile.</p>
+    `,
+    related: ["ai","flowchart","kunst"]
+  },
+  "kunst": {
+    title: "Die Kunst der Fuge: from music to consciousness",
+    tag: "Culture",
+    cat: "Culture &amp; Innovation",
+    lead: "L'ultima opera di Bach — incompiuta, enigmatica, impossibile da eseguire. Cosa ci dice sulla coscienza, sulla macchina, e sul mistero di chi crea.",
+    date: "20 febbraio 2026",
+    read: "9 min · EN/DE",
+    body: `
+      <h2>The unfinished fugue</h2>
+      <p>In 1751, Johann Sebastian Bach died before completing his final work: <em>Die Kunst der Fuge</em> (The Art of the Fugue). The last page breaks off mid-phrase, in the middle of a four-voice contrapuntal fugue. His son Carl Philipp Emanuel left a note: "The author died while working on this fugue."</p>
+      <p>What Bach left behind is not just an unfinished composition. It is one of the most profound puzzles in the history of human creativity: a system so intricate, so internally consistent, that it seems to have generated itself — and then, suddenly, stops.</p>
+      <h2>Counterpoint as thought</h2>
+      <p>The Kunst der Fuge consists of fourteen fugues and four canons, all derived from a single four-note motif: D-A-F-D. The variations are inexhaustible. Each fugue is a different mode of attention, a different way of hearing the same question.</p>
+      <blockquote>"Wenn man Gott zuhört, hört man Kontrapunkt." — When one listens to God, one hears counterpoint.</blockquote>
+      <p>What makes this work different from every other compositional system is that the structure is the meaning. There is no "content" separate from the form. The music is the thought.</p>
+      <h2>What AI hears (and doesn't)</h2>
+      <p>Several AI systems have been trained on Bach and asked to complete the unfinished fugue. The results are technically competent. The voice leading is correct. The harmonic logic follows. And yet something is missing — a quality that musicians describe variously as "inevitability," "tension," or simply "soul."</p>
+      <p>This is not a failure of AI. It is a revealing of what counterpoint actually is: not a set of rules, but a way of thinking across time. The fugue is not solved note by note — it is conceived whole, then revealed sequentially. AI can replicate the sequence. It cannot conceive the whole.</p>
+      <h2>On consciousness and creation</h2>
+      <p>The Kunst der Fuge raises the question that AI has made urgent: what is it that a mind does when it creates? Is creativity pattern recognition at sufficient depth? Or is it something irreducibly different — a relationship between a self and the materials of a medium, mediated by intention?</p>
+      <p>Bach's unfinished fugue does not answer this question. It <em>is</em> this question — suspended, unresolved, impossibly beautiful.</p>
+    `,
+    related: ["ai","tokenisation","flowchart"]
+  },
+  "tech": {
+    title: "AI Revolution — il manifesto",
+    tag: "AI",
+    cat: "AI &amp; Tech",
+    lead: "Non una predizione. Non una guida. Un tentativo di nominare quello che sta succedendo — prima che succeda del tutto.",
+    date: "1 marzo 2026",
+    read: "6 min · EN",
+    body: `
+      <h2>We are not in a hype cycle</h2>
+      <p>Every technology revolution produces a hype cycle — a period of inflated expectations, followed by disillusionment, followed by quiet adoption. The AI moment of 2023-2026 looks like a hype cycle from the outside. It is not. It is a structural shift, and the difference matters.</p>
+      <p>Hype cycles leave the underlying structure of the economy unchanged. Structural shifts do not. The internet was a structural shift. The smartphone was a structural shift. General-purpose AI — the kind that can read, write, code, analyze, and reason across domains — is a structural shift.</p>
+      <h2>The three revolutions in one</h2>
+      <p>What makes this moment unusual is that we are experiencing three transformations simultaneously:</p>
+      <ul>
+        <li><strong>The cognition revolution</strong> — machines that can think, at least functionally, about an increasingly wide range of problems.</li>
+        <li><strong>The automation revolution</strong> — not just physical labor, but cognitive labor. White-collar work is now automatable at scale.</li>
+        <li><strong>The distribution revolution</strong> — AI capabilities that previously required a team of 50 PhDs are now accessible to anyone with a browser and a credit card.</li>
+      </ul>
+      <blockquote>"The revolution is not that AI is smart. The revolution is that it is cheap, fast, and everywhere."</blockquote>
+      <h2>What this means for institutions</h2>
+      <p>Every institution built around information asymmetry — law firms, consulting companies, financial advisors, media companies — is under structural pressure. Not because AI is smarter than their people. Because AI removes the friction that made their monopoly on expertise valuable.</p>
+      <p>The institutions that survive will be those that recognize this early and reorganize around what AI cannot do: accountability, relationships, judgment, trust.</p>
+      <h2>The manifesto</h2>
+      <p>We should not be afraid of this revolution. We should not pretend it isn't happening. We should engage with it honestly — understanding what it can and cannot do, building workflows that amplify human judgment rather than replacing it, and insisting on accountability at every step.</p>
+      <p>The AI revolution is not something that is happening <em>to</em> us. It is something we are doing. The question is whether we are doing it deliberately.</p>
+    `,
+    related: ["ai","tokenisation","flowchart"]
+  }
 };
 
-var WP_API = "https://www.samantha-fund.com/wp-json/wp/v2";
+// Legacy slug map kept for backward compat with any old links
+var SLUG_MAP = {
+  "ai-economic-disruption-human-value": "ai",
+  "tokenisation-the-next-financial-frontier": "tokenisation",
+  "from-flowchart-to-app-the-future-of-work": "flowchart",
+  "wavecity-rome-the-story-behind-the-professional-wave-pool-business-plan": "wavecity",
+  "die-kunst-del-fugae": "kunst",
+  "future-of-consulting-adapting-to-ai-challenges": "tech"
+};
 
 function set(id, val, html) {
   var el = document.getElementById(id);
   if (!el) return;
   if (html) el.innerHTML = val; else el.textContent = val;
-}
-
-function stripHtml(html) {
-  return html.replace(/<[^>]+>/g, "").replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&hellip;/g,"…").replace(/&#8217;/g,"’").replace(/&#8216;/g,"’").trim();
-}
-
-function readingTime(html) {
-  var words = stripHtml(html).split(/\s+/).filter(Boolean).length;
-  return Math.max(1, Math.ceil(words / 220));
-}
-
-function formatDate(iso) {
-  var d = new Date(iso);
-  return d.toLocaleDateString("it-IT", {day:"numeric", month:"long", year:"numeric"});
 }
 
 function updateShare() {
@@ -293,89 +443,63 @@ function updateShare() {
   });
 }
 
-async function loadRelated(catId, excludeId) {
-  try {
-    var res = await fetch(WP_API + "/posts?categories=" + catId + "&exclude=" + excludeId + "&per_page=3&_embed=1&_fields=id,title,slug,excerpt,date,_embedded");
-    if (!res.ok) return;
-    var posts = await res.json();
-    if (!posts.length) return;
-    var grid = document.querySelector(".related-grid");
-    if (!grid) return;
-    grid.innerHTML = posts.map(function(p) {
-      var cat = (p._embedded && p._embedded["wp:term"] && p._embedded["wp:term"][0] && p._embedded["wp:term"][0][0])
-        ? p._embedded["wp:term"][0][0].name : "Article";
-      var excerpt = stripHtml(p.excerpt.rendered).substring(0, 90) + "…";
-      return ‘<a class="related-card" href="articolo.html?from=’ + p.slug + ‘">’
-        + ‘<span class="tag">’ + cat + ‘</span>’
-        + ‘<h3>’ + p.title.rendered + ‘</h3>’
-        + ‘<div class="meta">’ + excerpt + ‘</div>’
-        + ‘</a>’;
-    }).join("");
-  } catch(e) {}
+function renderRelated(slugs, currentSlug) {
+  var grid = document.querySelector(".related-grid");
+  if (!grid) return;
+  var TAG_LABELS = {ai:"AI",tokenisation:"Finance",flowchart:"Future of Work",wavecity:"Business",kunst:"Culture",tech:"AI"};
+  grid.innerHTML = slugs.filter(function(s){ return s !== currentSlug; }).slice(0,3).map(function(s){
+    var a = ARTICLES[s];
+    if (!a) return ‘’;
+    return ‘<a class="related-card" href="articolo.html?from=’ + s + ‘">’
+      + ‘<span class="tag">’ + (TAG_LABELS[s]||’Article’) + ‘</span>’
+      + ‘<h3>’ + a.title + ‘</h3>’
+      + ‘<div class="meta">’ + a.read + ‘</div>’
+      + ‘</a>’;
+  }).join(‘’);
 }
 
-(async function(){
+(function(){
   updateShare();
 
   var params = new URLSearchParams(window.location.search);
-  var rawSlug = params.get("from") || params.get("slug");
-  if (!rawSlug) return;
-
+  var rawSlug = params.get("from") || params.get("slug") || "ai";
+  // Normalizza slug lunghi → corti
   var slug = SLUG_MAP[rawSlug] || rawSlug;
+  var article = ARTICLES[slug];
 
-  // Mostra skeleton
   var banner = document.getElementById("placeholder-banner");
-  var skel = document.getElementById("loading-skel");
   if (banner) banner.style.display = "none";
-  if (skel) skel.style.display = "block";
+  var skel = document.getElementById("loading-skel");
+  if (skel) skel.style.display = "none";
 
-  try {
-    var res = await fetch(WP_API + "/posts?slug=" + encodeURIComponent(slug) + "&_embed=1");
-    if (!res.ok) throw new Error("HTTP " + res.status);
-    var posts = await res.json();
-    if (!posts.length) throw new Error("Post not found: " + slug);
-    var post = posts[0];
-
-    // Header
-    var title = post.title.rendered;
-    set("article-title", title, true);
-    document.title = stripHtml(title) + " — Samantha Fund";
-
-    var excerpt = stripHtml(post.excerpt.rendered).replace(/\[…\]/g,"").trim();
-    set("article-lead", excerpt);
-    set("article-date", formatDate(post.date));
-    set("article-read", readingTime(post.content.rendered) + " min");
-
-    // Categoria
-    var catName = "Article", catId = null;
-    if (post._embedded && post._embedded["wp:term"] && post._embedded["wp:term"][0] && post._embedded["wp:term"][0][0]) {
-      catName = post._embedded["wp:term"][0][0].name;
-      catId   = post._embedded["wp:term"][0][0].id;
-    }
-    set("article-tag", catName);
-    set("article-cat", catName);
-
-    // Body: sostituisce skeleton con contenuto reale
-    if (skel) skel.remove();
-    var bodyInner = document.getElementById("article-body-inner");
-    if (bodyInner) {
-      var contentDiv = document.createElement("div");
-      contentDiv.className = "wp-content";
-      contentDiv.innerHTML = post.content.rendered;
-      bodyInner.appendChild(contentDiv);
-    }
-
-    // Related posts
-    if (catId) loadRelated(catId, post.id);
-
-  } catch(err) {
-    if (skel) skel.style.display = "none";
+  if (!article) {
     if (banner) {
       banner.style.display = "block";
-      banner.innerHTML = "<strong>Articolo non trovato.</strong> Lo slug \"" + rawSlug + "\" non corrisponde a nessun articolo pubblicato. Torna alla <a href=\"index.html\">home</a>.";
+      banner.innerHTML = ‘<strong>Articolo non trovato.</strong> Torna alla <a href="index.html">home</a>.’;
     }
-    console.error("Article load error:", err);
+    return;
   }
+
+  // Header
+  set("article-title", article.title, true);
+  set("article-lead",  article.lead);
+  set("article-tag",   article.tag,  true);
+  set("article-cat",   article.cat,  true);
+  set("article-date",  article.date);
+  set("article-read",  article.read);
+  document.title = article.title + " — Samantha Fund";
+
+  // Body
+  var bodyInner = document.getElementById("article-body-inner");
+  if (bodyInner) {
+    var div = document.createElement("div");
+    div.className = "wp-content";
+    div.innerHTML = article.body;
+    bodyInner.appendChild(div);
+  }
+
+  // Related
+  if (article.related) renderRelated(article.related, slug);
 })();
 </script>
 
