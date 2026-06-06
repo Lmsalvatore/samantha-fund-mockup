@@ -23,7 +23,8 @@
 <nav class="nav">
   <div class="container nav-inner">
     <a href="index.html" class="brand"><span class="dot"></span><span class="name">Samantha<span>.Fund</span></span></a>
-    <div class="menu">
+    <button class="menu-toggle" aria-label="Apri menu" aria-expanded="false" aria-controls="note-legali-menu" onclick="var m=document.getElementById('note-legali-menu');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Chiudi menu':'Apri menu');this.innerHTML=o?'&#10005;':'&#9776;'">&#9776;</button>
+    <div class="menu" id="note-legali-menu">
       <a href="index.html#blog">Blog</a>
       <a href="index.html#tech">AI &amp; Tech</a>
       <a href="index.html#podcast">Podcast</a>

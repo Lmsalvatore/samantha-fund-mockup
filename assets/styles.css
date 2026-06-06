@@ -295,6 +295,13 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line);background:var(--bg-
 .contact-form button{align-self:start;margin-top:6px;cursor:pointer;border:0;background:var(--ink);color:#fff;padding:14px 22px;border-radius:12px;font-weight:600;font-size:15px;font-family:inherit;transition:.15s ease}
 .contact-form button:hover{background:#08182b;transform:translateY(-1px)}
 
+/* Hamburger toggle */
+.menu-toggle{
+  display:none;background:none;border:1px solid var(--line);border-radius:10px;
+  width:42px;height:42px;font-size:20px;line-height:1;color:var(--ink);
+  cursor:pointer;align-items:center;justify-content:center;
+}
+
 /* Responsive */
 @media (max-width: 900px){
   .pillars,.grid{grid-template-columns:1fr 1fr}
@@ -303,7 +310,17 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line);background:var(--bg-
   .podcast .cover{max-width:280px;margin:0 auto}
   .cta-band{grid-template-columns:1fr;padding:40px 28px}
   .foot-grid{grid-template-columns:1fr 1fr}
-  .menu a:not(.cta){display:none}
+  .menu-toggle{display:inline-flex}
+  .menu{
+    position:absolute;top:68px;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:0;
+    background:rgba(255,255,255,.98);backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid var(--line);padding:8px 20px 16px;
+    box-shadow:var(--shadow);display:none;
+  }
+  .menu.open{display:flex}
+  .menu a{padding:12px 14px;border-radius:10px}
+  .menu .cta{text-align:center;margin-top:6px}
   .contact-grid{grid-template-columns:1fr}
 }
 @media (max-width: 600px){
