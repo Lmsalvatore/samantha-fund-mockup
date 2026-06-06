@@ -1,0 +1,54 @@
+name: Deploy to Production (samantha-fund.com)
+
+# Deploy manuale: GitHub → Actions → "Deploy to Production" → Run workflow.
+# Sostituisce il WP esistente su www.samantha-fund.com con il redesign statico.
+# Secrets richiesti nel repo (Settings → Secrets and variables → Actions):
+#   FTP_HOST, FTP_USERNAME, FTP_PASSWORD, FTP_PORT (21)
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm_prod:
+        description: 'Scrivi DEPLOY-PROD per confermare'
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    name: FTP Deploy (Production)
+    runs-on: ubuntu-latest
+    if: github.event.inputs.confirm_prod == 'DEPLOY-PROD'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install lftp
+        run: sudo apt-get install -y lftp
+
+      - name: Deploy static site via FTPS
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -c "
+            set ftp:ssl-force true;
+            set ftp:ssl-protect-data true;
+            set ssl:verify-certificate no;
+            set net:max-retries 3;
+            set net:reconnect-interval-base 5;
+            open -u '$FTP_USER','$FTP_PASS' '$FTP_HOST';
+            mirror -R --delete --verbose --parallel=4 \
+              --exclude-glob .git/ \
+              --exclude-glob .github/ \
+              --exclude-glob .gitignore \
+              --exclude-glob README.md \
+              './' \
+              '/www.samantha-fund.com/';
+          "
+
+      - name: Smoke test
+        run: |
+          sleep 5
+          curl -fsS --max-time 30 -o /dev/null -w "HTTP %{http_code} — https://www.samantha-fund.com/\n" \
+            "https://www.samantha-fund.com/" || echo "::warning::smoke test fallito, verifica manualmente"
